@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1480">
+<title>Structure organisationnelle EUSP</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --hairline: #e5e5e5;
+    --neutral-fill: #f4f4f4;
+    --neutral-border: #c8c8c8;
+    --accent: #3b6fa8;
+    --accent-fill: #d8e4f1;
+    --accent-border: #6a92be;
+    --semau: #c5e2ee;
+    --semau-border: #9ec6d6;
+    --semau-text: #1a1a1a;
+    --semau-fill: #e3eff5;
+    --ecos: #e2c5bd;
+    --ecos-border: #c89e94;
+    --ecos-text: #1a1a1a;
+    --ecos-fill: #f0dfd9;
+    --smaa: #fce7ab;
+    --smaa-border: #d6b96a;
+    --smaa-text: #1a1a1a;
+    --smaa-fill: #fbf0c9;
+    --box-w: 168px;
+    --box-h: 56px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    font-size: 12pt;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ----- top nav ----- */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+    padding: 14px 48px;
+    font-size: 10pt;
+    z-index: 10;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  nav.toc a {
+    color: var(--muted);
+    text-decoration: none;
+    padding-bottom: 1px;
+  }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc .brand {
+    font-weight: 500;
+    color: var(--ink);
+    margin-right: auto;
+    letter-spacing: -0.005em;
+  }
+
+  /* ----- continuous scroll, no page borders ----- */
+  main { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+
+  /* ===== HERO / LANDING ===== */
+  .hero {
+    padding: 96px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero .label {
+    font-size: 10pt;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 56pt;
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+    max-width: 1000px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero p.lead {
+    font-size: 14pt;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 0 48px;
+    line-height: 1.55;
+  }
+  .hero .meta {
+    display: flex;
+    gap: 64px;
+    font-size: 10pt;
+    color: var(--muted);
+  }
+  .hero .meta .key { color: var(--ink); font-weight: 500; display: block; margin-bottom: 4px; }
+
+  /* ===== SECTION ===== */
+  section.lane-section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  section.lane-section:last-of-type { border-bottom: none; }
+
+  .swimlane {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .lane-label .lane-title {
+    font-weight: 500;
+    font-size: 13pt;
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .lane-label .lane-desc {
+    font-size: 10pt;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .lane-content { min-width: 0; }
+
+  /* ----- box ----- */
+  .box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: var(--box-w);
+    height: var(--box-h);
+    padding: 6px 8px;
+    background: var(--neutral-fill);
+    border: 1px solid var(--neutral-border);
+    border-radius: 4px;
+    font-size: 9pt;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .box.hl {
+    background: var(--accent-fill);
+    border-color: var(--accent-border);
+    color: #1a3a5e;
+    font-weight: 500;
+  }
+  .box.semau-svc, .box.ecos-svc, .box.smaa-svc {
+    font-weight: 500;
+    width: var(--box-w);
+    height: var(--box-h);
+    font-size: 9pt;
+  }
+  .box.semau-svc { background: var(--semau); border-color: var(--semau-border); color: var(--semau-text); }
+  .box.ecos-svc  { background: var(--ecos);  border-color: var(--ecos-border);  color: var(--ecos-text); }
+  .box.smaa-svc  { background: var(--smaa);  border-color: var(--smaa-border);  color: var(--smaa-text); }
+  .box.semau-eq { background: var(--semau-fill); border-color: var(--semau-border); color: var(--semau-text); }
+  .box.ecos-eq  { background: var(--ecos-fill);  border-color: var(--ecos-border);  color: var(--ecos-text); }
+  .box.smaa-eq  { background: var(--smaa-fill);  border-color: var(--smaa-border);  color: var(--smaa-text); }
+
+  /* ----- rows ----- */
+  .box-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  .box-row.last { margin-bottom: 0; }
+  .row-hl { /* highlight rows always alone */
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  /* connector line */
+  .connector {
+    width: 1px;
+    height: 16px;
+    background: var(--neutral-border);
+    margin: 2px auto;
+  }
+  .connector.hl { background: var(--accent-border); }
+
+  .cluster-label {
+    font-size: 9pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 24px 0 16px;
+    text-align: center;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .three-col .col, .two-col .col { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .col-stack { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+
+  /* ===== GLOSSARY ===== */
+  .glossary-section h2 {
+    font-size: 22pt;
+    font-weight: 500;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .glossary-section .lead {
+    font-size: 11pt;
+    color: var(--muted);
+    margin: 0 0 32px;
+  }
+  .glossary {
+    column-count: 2;
+    column-gap: 56px;
+  }
+  .glossary dl { margin: 0; }
+  .glossary dt {
+    font-weight: 500;
+    font-size: 10pt;
+    break-after: avoid;
+    margin-top: 12px;
+  }
+  .glossary dt:first-child { margin-top: 0; }
+  .glossary dd {
+    margin: 2px 0 12px;
+    font-size: 10pt;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 32px 48px 64px;
+    color: var(--muted);
+    font-size: 10pt;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* heading per section */
+  section.lane-section h2 {
+    font-size: 16pt;
+    font-weight: 500;
+    margin: 0 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    display: none; /* lane-label carries heading */
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <span class="brand">Ressources EUSP</span>
+  <a href="Structure_organisationnelle_EUSP.html">Structure organisationnelle</a>
+  <a href="acronymes.html">Glossaire</a>
+</nav>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="label">Direction régionale de santé publique</div>
+    <h1>Situer l'<em>EUSP</em> dans l'écosystème de la santé publique au Québec.</h1>
+    <p class="lead">Une vue continue, du Conseil des ministres jusqu'aux dossiers du secteur Environnements urbains et santé des populations.</p>
+  </section>
+
+  <!-- ===== ROW 1: Conseil des ministres ===== -->
+  <section class="lane-section" id="conseil">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">Conseil des ministres</p>
+        <p class="lane-desc">Cabinet du gouvernement du Québec qui définit les <strong>orientations politiques et législatives</strong> de l'État. La <strong>ministre de la Santé</strong> et le <strong>ministre des Services sociaux</strong> y portent les dossiers qui touchent directement le mandat de la DRSP.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row row-hl">
+          <div class="box hl">Première ministre</div>
+          <div class="box hl">Vice-premier ministre</div>
+        </div>
+        <div class="box-row">
+          <div class="box">Ministre des Finances</div>
+          <div class="box">Ministre de l'Éducation</div>
+          <div class="box">Ministre de l'Économie, de l'Innovation et de l'Énergie</div>
+          <div class="box">Ministre de la Justice</div>
+          <div class="box">Présidente du Conseil du trésor</div>
+          <div class="box">Ministre de la Culture et des Communications</div>
+          <div class="box">Ministre de la Langue française</div>
+          <div class="box">Ministre du Travail</div>
+          <div class="box">Ministre de l'Immigration, de la Francisation et de l'Intégration</div>
+          <div class="box">Ministre des Ressources naturelles et des Forêts</div>
+          <div class="box">Ministre de l'Environnement</div>
+          <div class="box">Ministre de l'Enseignement supérieur</div>
+          <div class="box">Ministre des Affaires municipales</div>
+          <div class="box">Ministre de la Famille</div>
+          <div class="box">Ministre de l'Agriculture, des Pêcheries et de l'Alimentation</div>
+          <div class="box">Ministre des Relations internationales et de la Francophonie</div>
+          <div class="box">Ministre des Transports et de la Mobilité durable</div>
+          <div class="box">Ministre du Tourisme</div>
+          <div class="box">Ministre de l'Emploi</div>
+          <div class="box">Ministre responsable de la Solidarité sociale et de l'Action communautaire</div>
+          <div class="box">Ministre responsable de l'Habitation</div>
+          <div class="box">Ministre responsable du Sport, du Loisir et du Plein air</div>
+          <div class="box">Ministre responsable de la Jeunesse</div>
+          <div class="box">Ministre délégué au Développement économique régional</div>
+          <div class="box">Ministre délégué à l'Économie et aux Petites et Moyennes Entreprises</div>
+        </div>
+        <div class="box-row row-hl last">
+          <div class="box hl">Ministre de la Santé</div>
+          <div class="box hl">Ministre responsable des Services sociaux</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 2: MSSS ===== -->
+  <section class="lane-section" id="msss">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">MSSS</p>
+        <p class="lane-desc">Le <strong>Ministère de la Santé et des Services sociaux</strong> établit le cadre normatif, les politiques publiques et les orientations en santé et services sociaux. C'est ce ministère, via le <strong>sous-ministériat à la Prévention et santé publique (SMPSP)</strong>, qui encadre la pratique de santé publique au Québec et guide les priorités de la DRSP.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row"><div class="box">Sous-ministre</div></div>
+        <div class="connector"></div>
+        <div class="box-row">
+          <div class="box">Santé physique et pharmaceutique</div>
+          <div class="box">Services sociaux</div>
+          <div class="box">Performance</div>
+          <div class="box">Protection de la jeunesse</div>
+          <div class="box">Services à l'organisation</div>
+          <div class="box">Ressources humaines et affaires gouvernementales</div>
+        </div>
+        <div class="box-row row-hl last">
+          <div class="box hl">Prévention et santé publique</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 3: Organismes ===== -->
+  <section class="lane-section" id="organismes">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">Organismes et comités permanents</p>
+        <p class="lane-desc">Organismes para-publics relevant du portefeuille de la Santé et des Services sociaux. Plusieurs sont des <strong>partenaires fréquents</strong> pour la DRSP : l'<strong>INSPQ</strong> pour l'expertise scientifique, la <strong>RAMQ</strong> pour les données populationnelles, et l'<strong>INESSS</strong> pour les avis sur les meilleures pratiques.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row">
+          <div class="box">Régie de l'assurance maladie du Québec (RAMQ)</div>
+          <div class="box">Institut national de santé publique du Québec (INSPQ)</div>
+          <div class="box">Office des personnes handicapées du Québec (OPHQ)</div>
+          <div class="box">Héma-Québec</div>
+          <div class="box">Institut national d'excellence en santé et services sociaux (INESSS)</div>
+          <div class="box">Commissaire à la santé et au bien-être (CSBE)</div>
+          <div class="box">Comité provincial des services en langue anglaise</div>
+          <div class="box">Corporation d'urgences-santé</div>
+          <div class="box">Comité provincial des communautés ethnoculturelles</div>
+          <div class="box">Commission sur les soins de fin de vie (CSFV)</div>
+        </div>
+        <div class="box-row row-hl last">
+          <div class="box hl">Santé Québec</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 4: Santé Québec ===== -->
+  <section class="lane-section" id="sante-quebec">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">Santé Québec</p>
+        <p class="lane-desc">Société d'État créée pour <strong>coordonner les opérations</strong> du réseau de la santé et des services sociaux. Depuis sa mise en place, c'est l'<strong>employeur unique</strong> du personnel du réseau ; la DRSP, comme toute la haute direction du CCSMTL, <strong>relève de Santé Québec</strong>.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row"><div class="box">Conseil d'administration</div></div>
+        <div class="connector hl"></div>
+        <div class="box-row row-hl">
+          <div class="box hl">Présidente et cheffe de la direction</div>
+        </div>
+        <div class="connector hl"></div>
+        <div class="box-row">
+          <div class="box">Vice-présidence Excellence clinique</div>
+          <div class="box">VP Stratégie et performance</div>
+          <div class="box">VP Affaires publiques et communications</div>
+          <div class="box">VP Talent, culture et engagement</div>
+          <div class="box">VP Approvisionnement et logistique</div>
+          <div class="box">VP Finances</div>
+          <div class="box">VP Technologies de l'information</div>
+        </div>
+        <div class="box-row row-hl last">
+          <div class="box hl">VP Opérations et coordination santé et services sociaux</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 5: Établissements ===== -->
+  <section class="lane-section" id="etablissements">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">Établissements de santé</p>
+        <p class="lane-desc">Les <strong>30 établissements</strong> du réseau québécois couvrent chacun un territoire ou une mission spécialisée. La DRSP de Montréal est hébergée par le <strong>CIUSSS du Centre-Sud-de-l'Île-de-Montréal</strong>, mais son mandat de santé publique couvre <strong>toute l'île</strong>, en collaboration avec les quatre autres CIUSSS montréalais.</p>
+      </div>
+      <div class="lane-content">
+        <p class="cluster-label" style="margin-top:0">3 établissements nordiques et autochtones</p>
+        <div class="box-row">
+          <div class="box">Centre régional de santé et de services sociaux de la Baie-James</div>
+          <div class="box">Conseil Cri de la santé et des services sociaux de la Baie-James</div>
+          <div class="box">Régie régionale de la santé et des services sociaux du Nunavik</div>
+        </div>
+
+        <p class="cluster-label">Autres régions : 17 CISSS / CIUSSS</p>
+        <div class="box-row">
+          <div class="box">CISSS du Bas-Saint-Laurent</div>
+          <div class="box">CISSS du Saguenay–Lac-Saint-Jean</div>
+          <div class="box">CIUSSS de la Capitale-Nationale</div>
+          <div class="box">CIUSSS de la Mauricie-et-du-Centre-du-Québec</div>
+          <div class="box">CIUSSS de l'Estrie (CHUS)</div>
+          <div class="box">CISSS de l'Outaouais</div>
+          <div class="box">CISSS de l'Abitibi-Témiscamingue</div>
+          <div class="box">CISSS de la Côte-Nord</div>
+          <div class="box">CISSS de la Gaspésie</div>
+          <div class="box">CISSS de Chaudière-Appalaches</div>
+          <div class="box">CISSS de Laval</div>
+          <div class="box">CISSS de Lanaudière</div>
+          <div class="box">CISSS des Laurentides</div>
+          <div class="box">CISSS de la Montérégie-Centre</div>
+          <div class="box">CISSS de la Montérégie-Est</div>
+          <div class="box">CISSS de la Montérégie-Ouest</div>
+          <div class="box">CISSS de la Baie-James</div>
+        </div>
+
+        <p class="cluster-label">Autres régions : 2 centres hospitaliers universitaires</p>
+        <div class="box-row">
+          <div class="box">CHU de Québec (Université Laval)</div>
+          <div class="box">Institut universitaire de cardiologie et de pneumologie de Québec</div>
+        </div>
+
+        <p class="cluster-label">Montréal : 3 centres hospitaliers universitaires</p>
+        <div class="box-row">
+          <div class="box">Centre hospitalier de l'Université de Montréal (CHUM)</div>
+          <div class="box">Centre universitaire de santé McGill (CUSM)</div>
+          <div class="box">CHU Sainte-Justine</div>
+        </div>
+
+        <p class="cluster-label">Montréal : 5 CIUSSS</p>
+        <div class="box-row">
+          <div class="box">CIUSSS du Centre-Ouest-de-l'Île-de-Montréal</div>
+          <div class="box">CIUSSS de l'Est-de-l'Île-de-Montréal</div>
+          <div class="box">CIUSSS du Nord-de-l'Île-de-Montréal</div>
+          <div class="box">CIUSSS de l'Ouest-de-l'Île-de-Montréal</div>
+          <div class="box hl">CIUSSS du Centre-Sud-de-l'Île-de-Montréal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 6: CCSMTL ===== -->
+  <section class="lane-section" id="ccsmtl">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">CCSMTL</p>
+        <p class="lane-desc">Le <strong>CIUSSS du Centre-Sud-de-l'Île-de-Montréal</strong> dessert le centre-sud de Montréal et porte plusieurs mandats <strong>régionaux et provinciaux</strong>, dont la santé publique pour l'ensemble de l'île. <strong>Vingt directions</strong> y opèrent, regroupées sous trois grandes filières : <strong>programmes sociaux et de réadaptation</strong> (où loge la DRSP), <strong>santé physique générale et spécialisée</strong>, et <strong>soutien, administration et performance</strong>.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row"><div class="box">Conseil d'administration d'établissement</div></div>
+        <div class="connector hl"></div>
+        <div class="box-row row-hl">
+          <div class="box hl">Président-directeur général</div>
+        </div>
+        <div class="connector hl"></div>
+        <div class="box-row">
+          <div class="box">DGA Programme santé physique générale et spécialisée</div>
+          <div class="box">DGA Soutien, administration et performance</div>
+        </div>
+        <div class="box-row row-hl">
+          <div class="box hl">PDGA Programmes sociaux et de réadaptation</div>
+        </div>
+        <div class="connector hl"></div>
+        <p class="cluster-label">20 directions sous la haute direction du CCSMTL</p>
+        <div class="box-row">
+          <div class="box">Direction protection de la jeunesse</div>
+          <div class="box">Direction Programme jeunesse</div>
+          <div class="box">Direction Programme déficiences (DI-TSA et DP)</div>
+          <div class="box">Direction Programme santé mentale et dépendance</div>
+          <div class="box">Direction Services généraux urbains</div>
+          <div class="box">Direction soutien à l'autonomie (Soutien à domicile, RI et continuum)</div>
+          <div class="box">Direction soutien à l'autonomie (Hébergement)</div>
+          <div class="box">Direction enseignement universitaire et recherche</div>
+          <div class="box">Direction des services professionnels</div>
+          <div class="box">Direction médicale et services multidisciplinaires</div>
+          <div class="box">Direction soins infirmiers</div>
+          <div class="box">Direction Fluidité hospitalière</div>
+          <div class="box">Direction qualité, évaluation, performance et éthique</div>
+          <div class="box">Direction services techniques</div>
+          <div class="box">Direction ressources informationnelles</div>
+          <div class="box">Direction approvisionnement et logistique</div>
+          <div class="box">Direction ressources humaines</div>
+          <div class="box">Direction ressources financières</div>
+          <div class="box">Direction communications et affaires juridiques</div>
+        </div>
+        <div class="box-row row-hl last">
+          <div class="box hl">Direction régionale de santé publique</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 7: DRSP ===== -->
+  <section class="lane-section" id="drsp">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">DRSP</p>
+        <p class="lane-desc">La <strong>Direction régionale de santé publique</strong> est responsable de la <strong>surveillance</strong>, de la <strong>prévention</strong> et de la <strong>protection</strong> de la santé de la population montréalaise. Elle se divise en <strong>deux volets</strong> (santé publique et santé au travail) regroupant <strong>cinq secteurs</strong> qui collaborent étroitement au quotidien.</p>
+      </div>
+      <div class="lane-content">
+        <div class="box-row row-hl">
+          <div class="box hl">DRSP</div>
+        </div>
+        <div class="connector hl"></div>
+        <p class="cluster-label">Volets</p>
+        <div class="two-col">
+          <div class="col">
+            <div class="box hl">Santé publique (DASP)</div>
+            <p class="cluster-label">Secteurs DASP</p>
+            <div class="col-stack">
+              <div class="box">Maladies infectieuses</div>
+              <div class="box">Services à la jeunesse</div>
+              <div class="box hl">Environnements urbains et santé des populations</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="box">Santé au travail (DASAT)</div>
+            <p class="cluster-label">Secteurs DASAT</p>
+            <div class="col-stack">
+              <div class="box">Prévention des risques à la santé des travailleurs</div>
+              <div class="box">Protection PMSD et urgences sanitaires</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 8: EUSP ===== -->
+  <section class="lane-section" id="eusp">
+    <div class="swimlane">
+      <div class="lane-label">
+        <p class="lane-title">EUSP</p>
+        <p class="lane-desc">Le secteur <strong>Environnements urbains et santé des populations</strong> agit sur les <strong>déterminants sociaux et environnementaux</strong> de la santé à Montréal. Il regroupe <strong>trois services thématiques</strong> (SEMAU, ÉCoS et SMAA), chacun composé de plusieurs dossiers spécialisés.</p>
+
+      </div>
+      <div class="lane-content">
+        <p class="cluster-label" style="margin-top:0">3 services EUSP</p>
+        <div class="three-col">
+          <div class="col">
+            <div class="box semau-svc">Santé environnementale, mobilité, aménagement, urgences (SEMAU)</div>
+            <div class="cluster-label">Dossiers SEMAU</div>
+            <div class="col-stack">
+              <div class="box semau-eq">Aménagements urbains et mobilité</div>
+              <div class="box semau-eq">Changements climatiques</div>
+              <div class="box semau-eq">Mesures d'urgence</div>
+              <div class="box semau-eq">Risques environnementaux</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="box ecos-svc">Équité et communautés en santé (ÉCoS)</div>
+            <div class="cluster-label">Dossiers ÉCoS</div>
+            <div class="col-stack">
+              <div class="box ecos-eq">PRIME</div>
+              <div class="box ecos-eq">Prévention de la violence</div>
+              <div class="box ecos-eq">Équité en santé</div>
+              <div class="box ecos-eq">Logement</div>
+              <div class="box ecos-eq">Prévention de l'itinérance</div>
+              <div class="box ecos-eq">Sécurité alimentaire</div>
+              <div class="box ecos-eq">Développement social et des communautés</div>
+              <div class="box ecos-eq">Participation citoyenne</div>
+              <div class="box ecos-eq">Résilience des individus et des communautés</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="box smaa-svc">Santé et mieux-être adultes et aîné·e·s (SMAA)</div>
+            <div class="cluster-label">Dossiers SMAA</div>
+            <div class="col-stack">
+              <div class="box smaa-eq">Saines habitudes de vie</div>
+              <div class="box smaa-eq">Soutien technique</div>
+              <div class="box smaa-eq">Adaptation au vieillissement</div>
+              <div class="box smaa-eq">Substances psychoactives, tabac et jeu</div>
+              <div class="box smaa-eq">Pratiques cliniques préventives</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer>
+  Direction régionale de santé publique · CIUSSS du Centre-Sud-de-l'Île-de-Montréal · Avril 2026
+</footer>
+
+</body>
+</html>

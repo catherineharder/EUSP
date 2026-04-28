@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1480">
+<title>Glossaire des acronymes — DRSP</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --hairline: #e5e5e5;
+    --accent: #3b6fa8;
+    --tag-bg: #f1f1f1;
+    --tag-ink: #5a5a5a;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    font-size: 12pt;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  nav.toc {
+    position: sticky; top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+    padding: 14px 48px;
+    font-size: 10pt;
+    z-index: 10;
+    display: flex; gap: 24px; align-items: center;
+  }
+  nav.toc a { color: var(--muted); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc .brand { font-weight: 500; color: var(--ink); margin-right: auto; }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+  .hero {
+    padding: 96px 0 56px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero .label {
+    font-size: 10pt; color: var(--muted);
+    letter-spacing: 0.06em; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 48pt; font-weight: 400;
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin: 0 0 24px;
+  }
+  .hero p.lead {
+    font-size: 13pt; color: var(--muted);
+    max-width: 720px; margin: 0;
+    line-height: 1.55;
+  }
+
+  .controls {
+    display: flex; gap: 16px; align-items: center;
+    padding: 24px 0 8px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 32px;
+    position: sticky; top: 50px;
+    background: #fff; z-index: 5;
+  }
+  .controls input {
+    flex: 1; max-width: 360px;
+    padding: 10px 14px;
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    font-size: 11pt;
+    font-family: inherit;
+    color: var(--ink);
+    outline: none;
+  }
+  .controls input:focus { border-color: var(--accent); }
+  .controls .count {
+    font-size: 10pt; color: var(--muted);
+  }
+  .alpha-index {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 32px;
+    font-size: 10pt;
+  }
+  .alpha-index a {
+    display: inline-block;
+    min-width: 28px;
+    text-align: center;
+    padding: 4px 8px;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .alpha-index a:hover {
+    color: var(--accent);
+    background: #f4f4f4;
+  }
+
+  .letter-block { margin-bottom: 40px; scroll-margin-top: 120px; }
+  .letter-block h3.letter {
+    font-size: 24pt; font-weight: 400;
+    color: var(--accent);
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 8px;
+  }
+  .letter-block dl { margin: 0; }
+  .entry {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .entry dt {
+    font-weight: 500;
+    font-size: 10.5pt;
+    color: var(--ink);
+  }
+  .entry dd {
+    margin: 0;
+    font-size: 10.5pt;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .entry .src {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 8px;
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    font-size: 8.5pt;
+    border-radius: 3px;
+    font-weight: 400;
+    vertical-align: 2px;
+    white-space: nowrap;
+  }
+  .entry.hidden { display: none; }
+
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 32px 48px 64px;
+    color: var(--muted);
+    font-size: 10pt;
+    max-width: 1100px;
+    margin: 56px auto 0;
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <span class="brand">Ressources EUSP</span>
+  <a href="index.html">Structure organisationnelle</a>
+  <a href="Acronymes.html">Glossaire</a>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <div class="label">DRSP</div>
+    <h1>Glossaire des acronymes</h1>
+    <p class="lead">Liste combinée des sigles et acronymes utilisés à la DRSP, dans le PNSP et dans le PARI-SP.</p>
+  </section>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Rechercher un acronyme ou une signification…" autocomplete="off">
+    <span class="count" id="count">374 entrées</span>
+  </div>
+
+  <div class="alpha-index">
+<a href="#lt-A">A</a> <a href="#lt-B">B</a> <a href="#lt-C">C</a> <a href="#lt-D">D</a> <a href="#lt-E">E</a> <a href="#lt-F">F</a> <a href="#lt-G">G</a> <a href="#lt-H">H</a> <a href="#lt-I">I</a> <a href="#lt-J">J</a> <a href="#lt-L">L</a> <a href="#lt-M">M</a> <a href="#lt-O">O</a> <a href="#lt-P">P</a> <a href="#lt-R">R</a> <a href="#lt-S">S</a> <a href="#lt-T">T</a> <a href="#lt-U">U</a> <a href="#lt-V">V</a>
+  </div>
+
+<section class="letter-block" id="lt-A">
+  <h3 class="letter">A</h3>
+  <dl>
+    <div class="entry"><dt>ACCQ</dt><dd>Association des CLSC et des CHSLD du Québec</dd></div>
+    <div class="entry"><dt>ACCÉSSS</dt><dd>Alliance des Communautés culturelles pour l’Égalité dans la Santé et les Services Sociaux</dd></div>
+    <div class="entry"><dt>ACIA</dt><dd>Agence canadienne d&#x27;inspection des aliments</dd></div>
+    <div class="entry"><dt>ACSP</dt><dd>Association canadienne de santé publique</dd></div>
+    <div class="entry"><dt>ADDICQ</dt><dd>Association pour la défense des droits et l’inclusion des personnes qui consomment des drogues du Québec</dd></div>
+    <div class="entry"><dt>ADS+</dt><dd>Analyse différentiée selon le sexe dans une perspective intersectionnelle</dd></div>
+    <div class="entry"><dt>ALV</dt><dd>Appareils de loterie vidéo</dd></div>
+    <div class="entry"><dt>AMC</dt><dd>Association Médicale Canadienne</dd></div>
+    <div class="entry"><dt>AMLFC</dt><dd>Association des Médecins de Langue française</dd></div>
+    <div class="entry"><dt>AMOM</dt><dd>Association des médecins omnipraticiens de Montréal</dd></div>
+    <div class="entry"><dt>AMP</dt><dd>Activités Médicales Particulières</dd></div>
+    <div class="entry"><dt>AO</dt><dd>Aire ouverte</dd></div>
+    <div class="entry"><dt>APPR</dt><dd>Agent de planification, de programmation et de recherche</dd></div>
+    <div class="entry"><dt>APS</dt><dd>Approvisionnement plus sécuritaire</dd></div>
+    <div class="entry"><dt>AQESSS</dt><dd>Association québécoise d’établissements de santé et de services sociaux</dd></div>
+    <div class="entry"><dt>ASPC</dt><dd>Agence de la santé publique du Canada</dd></div>
+    <div class="entry"><dt>ASPIC</dt><dd>Action de santé publique et ISS en contexte de crise</dd></div>
+    <div class="entry"><dt>ASPQ</dt><dd>Association pour la Santé Publique du Québec</dd></div>
+    <div class="entry"><dt>ASSS</dt><dd>Agence de la santé et des services sociaux</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-B">
+  <h3 class="letter">B</h3>
+  <dl>
+    <div class="entry"><dt>BAMD</dt><dd>Bureau des affaires médicales et dentaires</dd></div>
+    <div class="entry"><dt>BAPE</dt><dd>Bureau d&#x27;audiences publiques sur l&#x27;environnement</dd></div>
+    <div class="entry"><dt>BCQ</dt><dd>Bureau du coroner du Québec</dd></div>
+    <div class="entry"><dt>BMU</dt><dd>Bureau des Mesures d’Urgence</dd></div>
+    <div class="entry"><dt>BPIN</dt><dd>Bureau de prévention des infections nosocomiales</dd></div>
+    <div class="entry"><dt>BPO</dt><dd>Bureau de Projet Organisationnel</dd></div>
+    <div class="entry"><dt>BSD (PP)</dt><dd>Bureau de soutien à la direction, (à la planification et aux partenariats)</dd></div>
+    <div class="entry"><dt>BSE</dt><dd>Bureau de surveillance épidémiologique</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-C">
+  <h3 class="letter">C</h3>
+  <dl>
+    <div class="entry"><dt>CAAM</dt><dd>Comité aviseur antiterrorisme de Montréal</dd></div>
+    <div class="entry"><dt>CACIS</dt><dd>Chaire Approches communautaires et inégalités de santé</dd></div>
+    <div class="entry"><dt>CAGE</dt><dd>Comité d’action sur la garde en établissement</dd></div>
+    <div class="entry"><dt>CAMIT</dt><dd>Comité aviseur en maladies infectieuses de l&#x27;Aéroport Montréal-Trudeau</dd></div>
+    <div class="entry"><dt>CAMSI</dt><dd>Centre d’accès au matériel stérile d’injection</dd></div>
+    <div class="entry"><dt>CARRA</dt><dd>Commission administrative des régimes de retraite et d’assurances</dd></div>
+    <div class="entry"><dt>CASC</dt><dd>Comité aviseur sécurité civile de Montréal</dd></div>
+    <div class="entry"><dt>CAT</dt><dd>Centre d’abandon du tabagisme</dd></div>
+    <div class="entry"><dt>CAU</dt><dd>Centre affilié Universitaire</dd></div>
+    <div class="entry"><dt>CBRNE</dt><dd>Incidents chimiques, biologiques, radiologiques, nucléaires et explosifs</dd></div>
+    <div class="entry"><dt>CCASS</dt><dd>Conseil canadien d’agrément des services de santé</dd></div>
+    <div class="entry"><dt>CCMU</dt><dd>Centre de coordination des mesures d’urgence</dd></div>
+    <div class="entry"><dt>CCNDS</dt><dd>Centre collaborateur national sur les déterminants de la santé</dd></div>
+    <div class="entry"><dt>CCOMTL</dt><dd>CIUSSS du Centre-Ouest-de-l&#x27;Île-de-Montréal</dd></div>
+    <div class="entry"><dt>CCR</dt><dd>Comité de coordination réseau</dd></div>
+    <div class="entry"><dt>CCSMTL</dt><dd>CIUSSS du Centre-Sud-de-l&#x27;Île-de-Montréal</dd></div>
+    <div class="entry"><dt>CCSSSBJ</dt><dd>Conseil cri de la santé et des services sociaux de la Baie James</dd></div>
+    <div class="entry"><dt>CD</dt><dd>Comité de direction</dd></div>
+    <div class="entry"><dt>CEETUM</dt><dd>Centre d’études ethniques des universités montréalaises</dd></div>
+    <div class="entry"><dt>CELAC</dt><dd>Chaire d’enseignement Lucie et André Chagnon</dd></div>
+    <div class="entry"><dt>CEMTGC</dt><dd>Centre d’expertise de Montréal en troubles graves du comportement</dd></div>
+    <div class="entry"><dt>CEMTL</dt><dd>CIUSSS de l&#x27;Est-de-l&#x27;Île-de-Montréal</dd></div>
+    <div class="entry"><dt>CGR(M)</dt><dd>Comité de gestion du réseau (de Montréal)</dd></div>
+    <div class="entry"><dt>CHA</dt><dd>Centre hospitalier affilié Universitaire de Québec</dd></div>
+    <div class="entry"><dt>CHSGS</dt><dd>Centres hospitaliers de soins généraux et spécialisés</dd></div>
+    <div class="entry"><dt>CHSLD</dt><dd>Centre d’hébergement et de soins de longue durée</dd></div>
+    <div class="entry"><dt>CHSRS</dt><dd>Voir FCRSS</dd></div>
+    <div class="entry"><dt>CHUM</dt><dd>Centre hospitalier universitaire de Montréal</dd></div>
+    <div class="entry"><dt>CIHR</dt><dd>Voir IRSC</dd></div>
+    <div class="entry"><dt>CINQ</dt><dd>Comité sur les infections nosocomiales du Québec</dd></div>
+    <div class="entry"><dt>CIR</dt><dd>Commission infirmière régionale</dd></div>
+    <div class="entry"><dt>CISSS</dt><dd>Centre intégré de santé et de services sociaux</dd></div>
+    <div class="entry"><dt>CISTE</dt><dd>Clinique interuniversitaire de santé au travail et de santé environnementale</dd></div>
+    <div class="entry"><dt>CIUSSS</dt><dd>Centre intégré universitaire de santé et des services sociaux</dd></div>
+    <div class="entry"><dt>CJM‐IU</dt><dd>Centre Jeunesse de Montréal – Institut Universitaire</dd></div>
+    <div class="entry"><dt>CLSC</dt><dd>Centre local de services communautaires</dd></div>
+    <div class="entry"><dt>CMA</dt><dd>Centres médicaux associés</dd></div>
+    <div class="entry"><dt>CMDP</dt><dd>Conseil des médecins, dentistes et pharmaciens</dd></div>
+    <div class="entry"><dt>CMIS</dt><dd>Carrefour montréalais d’information socio sanitaire</dd></div>
+    <div class="entry"><dt>CMTQ</dt><dd>Coalition montréalaise des tables de quartier</dd></div>
+    <div class="entry"><dt>CMUR</dt><dd>Commission multidisciplinaire régionale</dd></div>
+    <div class="entry"><dt>CNESST</dt><dd>Commission des normes, de l&#x27;équité, de la santé et de la sécurité du travail</dd></div>
+    <div class="entry"><dt>CNIM</dt><dd>CIUSSS du Nord-de-l&#x27;Île-de-Montréal</dd></div>
+    <div class="entry"><dt>COMTL</dt><dd>CIUSSS de l&#x27;Ouest-de-l&#x27;Île-de-Montréal</dd></div>
+    <div class="entry"><dt>COPIC</dt><dd>Communauté de pratique en allaitement pour les infirmières-chefs (en contexte d&#x27;IAB)</dd></div>
+    <div class="entry"><dt>CPE</dt><dd>Centre de la petite enfance</dd></div>
+    <div class="entry"><dt>CQCS</dt><dd>Centre québécois de coordination sur le sida</dd></div>
+    <div class="entry"><dt>CQCT</dt><dd>Coalition québécoise pour le contrôle du tabac</dd></div>
+    <div class="entry"><dt>CQTS</dt><dd>Conseil québécois sur le tabac et la santé</dd></div>
+    <div class="entry"><dt>CRAM</dt><dd>Comité régional en allaitement maternel</dd></div>
+    <div class="entry"><dt>CRCHUM</dt><dd>Centre de recherche du centre hospitalier de l’Université de Montréal</dd></div>
+    <div class="entry"><dt>CRD</dt><dd>Centre de réadaptation en dépendance</dd></div>
+    <div class="entry"><dt>CReSP</dt><dd>Centre de recherche en santé publique</dd></div>
+    <div class="entry"><dt>CRID</dt><dd>Centre de référence pour investigation désigné</dd></div>
+    <div class="entry"><dt>CRMUSCAR</dt><dd>Coordination régionale des mesures d&#x27;urgence, de la sécurité civile et des accès réseau</dd></div>
+    <div class="entry"><dt>CRMUSCSU</dt><dd>Coordination régionale des mesures d’urgence, de la sécurité civile et de la liaison avec les salles d’urgence</dd></div>
+    <div class="entry"><dt>CRSP</dt><dd>Comité régional des pratiques en services pharmaceutiques</dd></div>
+    <div class="entry"><dt>CRÉUM</dt><dd>Centre de recherche en éthique de l’Université de Montréal</dd></div>
+    <div class="entry"><dt>CSDM</dt><dd>Commission scolaire de Montréal</dd></div>
+    <div class="entry"><dt>CSEM</dt><dd>Commission scolaire English-Montréal</dd></div>
+    <div class="entry"><dt>CSMB</dt><dd>Commission scolaire Marguerite-Bourgeoys</dd></div>
+    <div class="entry"><dt>CSPI</dt><dd>Commission scolaire de la Pointe de l’Île</dd></div>
+    <div class="entry"><dt>CSSDM</dt><dd>Centre de services scolaire de Montréal</dd></div>
+    <div class="entry"><dt>CSSS</dt><dd>Centre de santé et de services sociaux</dd></div>
+    <div class="entry"><dt>CSST</dt><dd>Commission de la santé et de la sécurité du travail</dd></div>
+    <div class="entry"><dt>CTQ</dt><dd>Centre de toxicologie du Québec</dd></div>
+    <div class="entry"><dt>CTROC</dt><dd>Coalition des tables régionales d&#x27;organismes communautaires</dd></div>
+    <div class="entry"><dt>CUSM</dt><dd>Centre universitaire de santé McGill</dd></div>
+    <div class="entry"><dt>CV</dt><dd>Couverture vaccinale</dd></div>
+    <div class="entry"><dt>CÉR</dt><dd>Comité d’Éthique de la Recherche</dd></div>
+    <div class="entry"><dt>CÉS</dt><dd>Centre d’éducation à la santé</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-D">
+  <h3 class="letter">D</h3>
+  <dl>
+    <div class="entry"><dt>DC</dt><dd>Développement des communautés</dd></div>
+    <div class="entry"><dt>DCI‐MI</dt><dd>Dossier client informatisé en maladies infectieuses</dd></div>
+    <div class="entry"><dt>DDA</dt><dd>Demandeurs·euses d&#x27;asile</dd></div>
+    <div class="entry"><dt>DES</dt><dd>Dossier de santé Électronique</dd></div>
+    <div class="entry"><dt>DEUR</dt><dd>Direction de l&#x27;enseignement universitaire et de la recherche</dd></div>
+    <div class="entry"><dt>DGAMU</dt><dd>Direction générale des affaires médicales et universitaires</dd></div>
+    <div class="entry"><dt>DGSP</dt><dd>Direction générale de la santé publique</dd></div>
+    <div class="entry"><dt>DI-TSA et DP</dt><dd>Déficience intellectuelle-Trouble du spectre de l’autisme –Déficience physique</dd></div>
+    <div class="entry"><dt>DIA</dt><dd>Division de l&#x27;inspection des aliments</dd></div>
+    <div class="entry"><dt>DJ</dt><dd>Service développement des jeunes</dd></div>
+    <div class="entry"><dt>DNSP</dt><dd>Directeur national de santé publique</dd></div>
+    <div class="entry"><dt>DQEPE</dt><dd>Direction qualité, évaluation, performance et éthique</dd></div>
+    <div class="entry"><dt>DRHCAJ</dt><dd>Direction des ressources humaines, communication et affaires juridiques</dd></div>
+    <div class="entry"><dt>DRI</dt><dd>Direction des ressources informationnelles</dd></div>
+    <div class="entry"><dt>DRMG</dt><dd>Département régional de médecine générale</dd></div>
+    <div class="entry"><dt>DRSP</dt><dd>Direction régionale de santé publique</dd></div>
+    <div class="entry"><dt>DSIE</dt><dd>Demande de services inter établissements</dd></div>
+    <div class="entry"><dt>DSPH</dt><dd>Direction des services professionnels et hospitaliers</dd></div>
+    <div class="entry"><dt>DSQ</dt><dd>Dossier de santé du Québec</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-E">
+  <h3 class="letter">E</h3>
+  <dl>
+    <div class="entry"><dt>E/I/S</dt><dd>Enquêtes‐interventions et signalement</dd></div>
+    <div class="entry"><dt>E/R</dt><dd>Enseignement et recherche</dd></div>
+    <div class="entry"><dt>EAQ</dt><dd>Équipe approche quartier</dd></div>
+    <div class="entry"><dt>EBJM</dt><dd>Enquête sur le bien‐être des jeunes montréalais</dd></div>
+    <div class="entry"><dt>ECC</dt><dd>Environnement et Changement climatique Canada</dd></div>
+    <div class="entry"><dt>ECL</dt><dd>Enquête canadienne sur le logement</dd></div>
+    <div class="entry"><dt>ECSB</dt><dd>Enquête canadienne sur la santé buccodentaire</dd></div>
+    <div class="entry"><dt>EGI</dt><dd>Entente de gestion et d’imputabilité</dd></div>
+    <div class="entry"><dt>EGIPSS</dt><dd>Évaluation globale et intégrée de la performance dans les systèmes de santé</dd></div>
+    <div class="entry"><dt>EIS</dt><dd>Évaluation d&#x27;impact sur la santé</dd></div>
+    <div class="entry"><dt>EISE</dt><dd>Évaluation de l&#x27;impact sur l&#x27;équité en matière de santé</dd></div>
+    <div class="entry"><dt>ELDEQ-2</dt><dd>Étude longitudinale du développement des enfants du Québec, 2e édition</dd></div>
+    <div class="entry"><dt>EMIS</dt><dd>Egton Medical Information Systems (site Web)</dd></div>
+    <div class="entry"><dt>ENA</dt><dd>Environnement numérique d&#x27;apprentissage</dd></div>
+    <div class="entry"><dt>ENF</dt><dd>Établissements non fusionnés</dd></div>
+    <div class="entry"><dt>EQCVIP</dt><dd>Enquête québécoise sur la vaccination contre la grippe saisonnière, le pneumocoque, le zona et la COVID-19 et sur les déterminants de la vaccination</dd></div>
+    <div class="entry"><dt>EQDEM</dt><dd>Enquête québécoise sur le développement des enfants à la maternelle</dd></div>
+    <div class="entry"><dt>EQPPEM</dt><dd>Enquête québécoise sur le parcours préscolaire des enfants de maternelle</dd></div>
+    <div class="entry"><dt>EQSJS</dt><dd>Enquête québécoise sur la santé des jeunes du secondaire</dd></div>
+    <div class="entry"><dt>EQSP</dt><dd>Enquête québécoise sur la santé de la population</dd></div>
+    <div class="entry"><dt>EQTPV</dt><dd>Enquête québécoise sur le tabac et les produits de vapotage</dd></div>
+    <div class="entry"><dt>ERV</dt><dd>Entérocoques résistants à la vancomycine</dd></div>
+    <div class="entry"><dt>ESCC</dt><dd>Enquête sur la santé dans les collectivités canadiennes</dd></div>
+    <div class="entry"><dt>ESPSS</dt><dd>Équipe santé des populations et services de santé</dd></div>
+    <div class="entry"><dt>ETADJES</dt><dd>Enquête québécoise sur le tabac, l&#x27;alcool, la drogue et le jeu chez les élèves du secondaire</dd></div>
+    <div class="entry"><dt>EUS</dt><dd>Environnement urbain et santé</dd></div>
+    <div class="entry"><dt>EUSP</dt><dd>Environnements urbains et santé des populations</dd></div>
+    <div class="entry"><dt>ÉIES</dt><dd>Évaluation d&#x27;impact sur l&#x27;équité en santé</dd></div>
+    <div class="entry"><dt>ÉIS</dt><dd>Évaluation d&#x27;impact sur la santé</dd></div>
+    <div class="entry"><dt>ÉLDEQ</dt><dd>Étude longitudinale du développement des enfants du Québec</dd></div>
+    <div class="entry"><dt>ÉMES</dt><dd>Écoles et Milieux en Santé</dd></div>
+    <div class="entry"><dt>ÉMIS</dt><dd>Espace montréalais d’information sur la santé</dd></div>
+    <div class="entry"><dt>ÉNF</dt><dd>Établissements non fusionnés</dd></div>
+    <div class="entry"><dt>ÉRAS</dt><dd>Équipe de recherche appliquée en santé</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-F">
+  <h3 class="letter">F</h3>
+  <dl>
+    <div class="entry"><dt>FC</dt><dd>Familles et communautés</dd></div>
+    <div class="entry"><dt>FCRSS</dt><dd>Fondation canadienne de la recherche sur les services de santé (CHSRF en anglais)</dd></div>
+    <div class="entry"><dt>FECRE</dt><dd>Famille, École, communauté, réussir ensemble</dd></div>
+    <div class="entry"><dt>FGA</dt><dd>Centres de formation générale des adultes</dd></div>
+    <div class="entry"><dt>FILS</dt><dd>Forum interne sur les liaisons stratégiques</dd></div>
+    <div class="entry"><dt>FIQ</dt><dd>Fédération interprofessionnelle de la santé du Québec</dd></div>
+    <div class="entry"><dt>FIRA</dt><dd>Father Involvement Research Alliance</dd></div>
+    <div class="entry"><dt>FMOQ</dt><dd>Fédération des médecins omnipraticiens du Québec</dd></div>
+    <div class="entry"><dt>FMSQ</dt><dd>Fédération des médecins spécialistes du Québec</dd></div>
+    <div class="entry"><dt>FP</dt><dd>Centres de formation professionnelle</dd></div>
+    <div class="entry"><dt>FRASA</dt><dd>Fonds Régional d&#x27;Aide aux Sans‐Abri</dd></div>
+    <div class="entry"><dt>FRSQ</dt><dd>Fonds de la recherche en santé du Québec (aujourd&#x27;hui FRQS – Fonds de recherche du Québec – Santé)</dd></div>
+    <div class="entry"><dt>FTE</dt><dd>Fumée de tabac dans l&#x27;environnement</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-G">
+  <h3 class="letter">G</h3>
+  <dl>
+    <div class="entry"><dt>GES</dt><dd>Gaz à effet de serre</dd></div>
+    <div class="entry"><dt>GMF</dt><dd>Groupe de médecine de famille</dd></div>
+    <div class="entry"><dt>GPCP</dt><dd>Groupe de pratiques communautaires en prévention des ITSS et en RDM</dd></div>
+    <div class="entry"><dt>GRGT</dt><dd>Groupe de recherche en gestion thérapeutique</dd></div>
+    <div class="entry"><dt>GRIS</dt><dd>Groupe de recherche interdisciplinaire en santé</dd></div>
+    <div class="entry"><dt>GRÉAS</dt><dd>Groupe de recherche sur l’équité d’accès et l’organisation des services de santé de 1re ligne</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-H">
+  <h3 class="letter">H</h3>
+  <dl>
+    <div class="entry"><dt>H1N1</dt><dd>Grippe A(H1N1) de 2009 (initialement appelée grippe porcine)</dd></div>
+    <div class="entry"><dt>H5N1</dt><dd>Grippe aviaire</dd></div>
+    <div class="entry"><dt>HARSAH</dt><dd>Hommes ayant des relations sexuelles avec des hommes</dd></div>
+    <div class="entry"><dt>HGC</dt><dd>Haltes-garderies communautaires</dd></div>
+    <div class="entry"><dt>HiAP</dt><dd>Health in all policies</dd></div>
+    <div class="entry"><dt>HMR</dt><dd>Hôpital Maisonneuve – Rosemont</dd></div>
+    <div class="entry"><dt>HPS</dt><dd>Hôpitaux promoteurs de la santé</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-I">
+  <h3 class="letter">I</h3>
+  <dl>
+    <div class="entry"><dt>IAB</dt><dd>Initiative des amis des bébés</dd></div>
+    <div class="entry"><dt>IAG</dt><dd>Intervenant(e) du service Ma Grossesse / Avis Ma Grossesse</dd></div>
+    <div class="entry"><dt>ICASI</dt><dd>Infirmière clinicienne assistant au supérieur immédiat</dd></div>
+    <div class="entry"><dt>ICIDJE</dt><dd>Initiative concertée d’intervention pour le développement des jeunes enfants</dd></div>
+    <div class="entry"><dt>ICIS</dt><dd>Institut canadien d’information sur la santé</dd></div>
+    <div class="entry"><dt>IIC</dt><dd>Infections et intoxication dans la communauté</dd></div>
+    <div class="entry"><dt>IMSDSL</dt><dd>Initiative montréalaise de soutien au développement social local</dd></div>
+    <div class="entry"><dt>INESSS</dt><dd>Institut national d&#x27;excellence en santé et services sociaux</dd></div>
+    <div class="entry"><dt>INI</dt><dd>Infections nosocomiales, immunisations et interventions</dd></div>
+    <div class="entry"><dt>INSPQ</dt><dd>Institut national de santé publique du Québec</dd></div>
+    <div class="entry"><dt>IP</dt><dd>Internet Protocol</dd></div>
+    <div class="entry"><dt>IPAC</dt><dd>Initiative de partenariats en action communautaire</dd></div>
+    <div class="entry"><dt>IPPAP</dt><dd>Intervention préventive auprès des personnes atteintes d’une ITSS et auprès de leurs partenaires</dd></div>
+    <div class="entry"><dt>IPS</dt><dd>Infirmier·ère praticien·ne spécialisé·e</dd></div>
+    <div class="entry"><dt>IQA</dt><dd>Indice de la qualité de l’air</dd></div>
+    <div class="entry"><dt>IR du CUSM</dt><dd>Institut de recherche du Centre universitaire de santé McGill</dd></div>
+    <div class="entry"><dt>IRSC</dt><dd>Instituts de recherche en santé du Canada (CIHR en anglais)</dd></div>
+    <div class="entry"><dt>IRSST</dt><dd>Institut de recherche Robert‐Sauvé en santé et en sécurité du travail</dd></div>
+    <div class="entry"><dt>ISO</dt><dd>Infections du site opératoire</dd></div>
+    <div class="entry"><dt>ISQ</dt><dd>Institut de la statistique du Québec</dd></div>
+    <div class="entry"><dt>ISS</dt><dd>Inégalités sociales de santé</dd></div>
+    <div class="entry"><dt>ITMAV</dt><dd>Initiatives de travail de milieu auprès des personnes aînées en situation de vulnérabilité</dd></div>
+    <div class="entry"><dt>ITS (S)</dt><dd>Infections transmissibles sexuellement (et par le sang)</dd></div>
+    <div class="entry"><dt>ITSS</dt><dd>Infections transmissibles sexuellement et par le sang</dd></div>
+    <div class="entry"><dt>IUGM</dt><dd>Institut universitaire de gériatrie de Montréal</dd></div>
+    <div class="entry"><dt>IVG</dt><dd>Interruption volontaire de grossesse</dd></div>
+    <div class="entry"><dt>IÉP</dt><dd>Interventions éducatives précoces (programme montréalais)</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-J">
+  <h3 class="letter">J</h3>
+  <dl>
+    <div class="entry"><dt>JASP</dt><dd>Journées annuelles de santé publique</dd></div>
+    <div class="entry"><dt>JHA</dt><dd>Jeux de hasard et d&#x27;argent</dd></div>
+    <div class="entry"><dt>JISD</dt><dd>Journée internationale sans diète</dd></div>
+    <div class="entry"><dt>JNSAP</dt><dd>Journée nationale du sport et de l’activité physique</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-L">
+  <h3 class="letter">L</h3>
+  <dl>
+    <div class="entry"><dt>LATMP</dt><dd>Loi sur les accidents du travail et les maladies professionnelles</dd></div>
+    <div class="entry"><dt>LGSSSS</dt><dd>Loi sur la gouvernance du système de santé et de services sociaux</dd></div>
+    <div class="entry"><dt>LGV</dt><dd>Lymphogranulomatose vénérienne</dd></div>
+    <div class="entry"><dt>LMRSST</dt><dd>Loi modernisant le régime de santé et de sécurité du travail</dd></div>
+    <div class="entry"><dt>LSP</dt><dd>Loi sur la santé publique</dd></div>
+    <div class="entry"><dt>LSSSS</dt><dd>Loi sur les services de santé et les services sociaux</dd></div>
+    <div class="entry"><dt>LSST</dt><dd>Loi sur la santé et la sécurité du travail</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-M">
+  <h3 class="letter">M</h3>
+  <dl>
+    <div class="entry"><dt>MADA</dt><dd>Municipalité amie des aînés</dd></div>
+    <div class="entry"><dt>MADO</dt><dd>Maladie à déclaration obligatoire</dd></div>
+    <div class="entry"><dt>MAMH</dt><dd>Ministère des Affaires municipales et de l&#x27;Habitation</dd></div>
+    <div class="entry"><dt>MAPAQ</dt><dd>Ministère de l&#x27;Agriculture, des Pêcheries et de l&#x27;Alimentation du Québec</dd></div>
+    <div class="entry"><dt>MATO</dt><dd>Maladie à traitement obligatoire</dd></div>
+    <div class="entry"><dt>MCI</dt><dd>Manifestations cliniques indésirables</dd></div>
+    <div class="entry"><dt>MEESQ</dt><dd>Ministère de l&#x27;éducation et de l&#x27;enseignement supérieur du Québec</dd></div>
+    <div class="entry"><dt>MEV</dt><dd>Maladies évitables par la vaccination</dd></div>
+    <div class="entry"><dt>MF</dt><dd>Ministère de la Famille</dd></div>
+    <div class="entry"><dt>MFA</dt><dd>Ministère de la famille</dd></div>
+    <div class="entry"><dt>MFFP</dt><dd>Ministère des Forêts, de la Faune et des Parcs</dd></div>
+    <div class="entry"><dt>MRC</dt><dd>Municipalité régionale de comté</dd></div>
+    <div class="entry"><dt>MRSI</dt><dd>Maladies respiratoires sévères infectieuses</dd></div>
+    <div class="entry"><dt>MSAM</dt><dd>Personnes migrantes sans assurance médicale</dd></div>
+    <div class="entry"><dt>MSP</dt><dd>Personnes migrantes à statut précaire</dd></div>
+    <div class="entry"><dt>MSP/MSAM</dt><dd>Personnes migrantes à statut précaire / sans assurance médicale</dd></div>
+    <div class="entry"><dt>MSSS</dt><dd>Ministère de la santé et des services sociaux</dd></div>
+    <div class="entry"><dt>MTESS</dt><dd>Ministère du travail, de l&#x27;emploi et de la solidarité sociale</dd></div>
+    <div class="entry"><dt>MTQ</dt><dd>Ministère des transports du Québec</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-O">
+  <h3 class="letter">O</h3>
+  <dl>
+    <div class="entry"><dt>OACIS</dt><dd>Open Architecture Clinical Information System</dd></div>
+    <div class="entry"><dt>OCPM</dt><dd>Office de consultation de Montréal</dd></div>
+    <div class="entry"><dt>OIIQ</dt><dd>Ordre des infirmières et infirmiers du Québec</dd></div>
+    <div class="entry"><dt>OMISS</dt><dd>Observatoire montréalais des inégalités sociales de la santé</dd></div>
+    <div class="entry"><dt>OMRT</dt><dd>Outil pour le maintien et le retour au travail</dd></div>
+    <div class="entry"><dt>OMS</dt><dd>Organisation mondiale de la santé</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-P">
+  <h3 class="letter">P</h3>
+  <dl>
+    <div class="entry"><dt>P.I.E.D.</dt><dd>Programme intégré d’équilibre dynamique</dd></div>
+    <div class="entry"><dt>PAG</dt><dd>Plan d’action gouvernemental</dd></div>
+    <div class="entry"><dt>PAGIEPS</dt><dd>Plan d’action gouvernemental pour l’inclusion économique et la participation sociale</dd></div>
+    <div class="entry"><dt>PAI</dt><dd>Plan d’action interministériel</dd></div>
+    <div class="entry"><dt>PAL / PAR</dt><dd>Plan d’action local / Plan d’action régional</dd></div>
+    <div class="entry"><dt>PAR</dt><dd>Plan d&#x27;action régional [de santé publique]</dd></div>
+    <div class="entry"><dt>PARI</dt><dd>Plan d’action régional intégré</dd></div>
+    <div class="entry"><dt>PARI-SP</dt><dd>Plan d’action régional intégré de santé publique</dd></div>
+    <div class="entry"><dt>PASTA</dt><dd>Programme de financement pour l&#x27;amélioration des systèmes territoriaux en alimentation</dd></div>
+    <div class="entry"><dt>PATT</dt><dd>Programme d’aide temporaire aux travailleurs</dd></div>
+    <div class="entry"><dt>PCC</dt><dd>Prévention et contrôle dans la communauté</dd></div>
+    <div class="entry"><dt>PCI</dt><dd>Prévention et contrôle des infections</dd></div>
+    <div class="entry"><dt>PCMI</dt><dd>Prévention et contrôle des maladies infectieuses</dd></div>
+    <div class="entry"><dt>PCP</dt><dd>Pratiques cliniques préventives</dd></div>
+    <div class="entry"><dt>PCRE</dt><dd>Prévention et contrôle des risques environnementaux</dd></div>
+    <div class="entry"><dt>PDG</dt><dd>Présidente-directrice générale ou président-directeur général</dd></div>
+    <div class="entry"><dt>PDSN</dt><dd>Programme de dépistage de la surdité chez le nouveau-né</dd></div>
+    <div class="entry"><dt>PEM</dt><dd>Plan d’effectifs médicaux des établissements</dd></div>
+    <div class="entry"><dt>PEVR</dt><dd>Plan d&#x27;engagement vers la réussite</dd></div>
+    <div class="entry"><dt>PFSI</dt><dd>Programme fédéral de santé intérimaire</dd></div>
+    <div class="entry"><dt>PGPS</dt><dd>Politique gouvernementale de prévention en santé</dd></div>
+    <div class="entry"><dt>PIC-RRAM</dt><dd>Plan d&#x27;impact collectif – Réseau Résilience Aîné.es Montréal</dd></div>
+    <div class="entry"><dt>PIED</dt><dd>Programme intégré d&#x27;équilibre dynamique</dd></div>
+    <div class="entry"><dt>PIQ</dt><dd>Protocole d’immunisation du Québec</dd></div>
+    <div class="entry"><dt>PMSD</dt><dd>Programme pour une maternité sans danger</dd></div>
+    <div class="entry"><dt>PNS</dt><dd>Plan national de surveillance</dd></div>
+    <div class="entry"><dt>PNSC</dt><dd>Plan national de sécurité civile du Québec</dd></div>
+    <div class="entry"><dt>PNSP</dt><dd>Programme national de santé publique</dd></div>
+    <div class="entry"><dt>POE</dt><dd>Planification, Orientation et Évaluation</dd></div>
+    <div class="entry"><dt>PPE</dt><dd>Prophylaxie post exposition</dd></div>
+    <div class="entry"><dt>PPI</dt><dd>Plans particuliers d&#x27;intervention</dd></div>
+    <div class="entry"><dt>PPMDP</dt><dd>Prévention en pratiques médicale, dentaire et pharmacienne</dd></div>
+    <div class="entry"><dt>PPPV</dt><dd>Promotion de la santé et prévention dans le parcours de Vie</dd></div>
+    <div class="entry"><dt>PPU</dt><dd>Programme particulier d’urbanisme</dd></div>
+    <div class="entry"><dt>PQAT</dt><dd>Plan québécois d’abandon du tabagisme</dd></div>
+    <div class="entry"><dt>PQDCS</dt><dd>Programme québécois de dépistage du cancer du sein</dd></div>
+    <div class="entry"><dt>PQI</dt><dd>Programme québécois d’immunisation</dd></div>
+    <div class="entry"><dt>PQLT</dt><dd>Plan québécois de lutte contre le tabagisme</dd></div>
+    <div class="entry"><dt>PREM</dt><dd>Plan régional d’effectifs médicaux</dd></div>
+    <div class="entry"><dt>PRIME</dt><dd>Personnes racisées immigrantes et issues des minorités ethnoculturelles</dd></div>
+    <div class="entry"><dt>PRSP</dt><dd>Plan régional de santé publique</dd></div>
+    <div class="entry"><dt>PSAT</dt><dd>Programmes de santé au travail</dd></div>
+    <div class="entry"><dt>PSOC</dt><dd>Programme de soutien aux organismes communautaires</dd></div>
+    <div class="entry"><dt>PSPS</dt><dd>Premiers soins premiers secours</dd></div>
+    <div class="entry"><dt>PSSAT</dt><dd>Secteur projets spéciaux en santé au travail</dd></div>
+    <div class="entry"><dt>PSSE</dt><dd>Programme de santé spécifique à l&#x27;établissement</dd></div>
+    <div class="entry"><dt>PSSP</dt><dd>Programme de subventions en santé publique</dd></div>
+    <div class="entry"><dt>PUD</dt><dd>Personnes utilisatrices de drogues</dd></div>
+    <div class="entry"><dt>PUDI</dt><dd>Personnes utilisatrices de drogues par injection</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-R">
+  <h3 class="letter">R</h3>
+  <dl>
+    <div class="entry"><dt>RACJ</dt><dd>Régie des alcools, des courses et des jeux</dd></div>
+    <div class="entry"><dt>RAMQ</dt><dd>Régie de l&#x27;assurance maladie du Québec</dd></div>
+    <div class="entry"><dt>RAPSIM</dt><dd>Réseau d’aide aux personnes seules et itinérantes à Montréal</dd></div>
+    <div class="entry"><dt>RDM</dt><dd>Réduction des méfaits</dd></div>
+    <div class="entry"><dt>RHCAJ</dt><dd>Direction des ressources humaines communication et affaires juridiques</dd></div>
+    <div class="entry"><dt>RI</dt><dd>Ressources intermédiaires/ Ressources informationnelles</dd></div>
+    <div class="entry"><dt>RIOCM</dt><dd>Regroupement intersectoriel des organismes communautaires de Montréal</dd></div>
+    <div class="entry"><dt>RISS-DC</dt><dd>Service réduction des inégalités sociales de santé et développement des communautés</dd></div>
+    <div class="entry"><dt>RLS</dt><dd>Réseaux locaux de services</dd></div>
+    <div class="entry"><dt>RPA</dt><dd>Résidence privée pour aînés</dd></div>
+    <div class="entry"><dt>RQASF</dt><dd>Réseau québécois d’action pour la santé des femmes</dd></div>
+    <div class="entry"><dt>RRSSSN</dt><dd>Régie régionale de la santé et des services sociaux du Nunavik</dd></div>
+    <div class="entry"><dt>RSIJ</dt><dd>Réseau de services intégré pour les jeunes</dd></div>
+    <div class="entry"><dt>RSIPA</dt><dd>Réseaux de services intégrés pour les personnes âgées</dd></div>
+    <div class="entry"><dt>RSPSAT</dt><dd>Réseau de Santé Publique en Santé au Travail</dd></div>
+    <div class="entry"><dt>RSSS</dt><dd>Réseau de la santé et des services sociaux</dd></div>
+    <div class="entry"><dt>RUIS</dt><dd>Réseaux universitaires intégrés de santé</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-S">
+  <h3 class="letter">S</h3>
+  <dl>
+    <div class="entry"><dt>SAA</dt><dd>Services adultes et aînés</dd></div>
+    <div class="entry"><dt>SAD</dt><dd>Service d&#x27;analyse des drogues</dd></div>
+    <div class="entry"><dt>SAG</dt><dd>Syndrome d’allure grippale</dd></div>
+    <div class="entry"><dt>SAM</dt><dd>Suicide Action Montréal</dd></div>
+    <div class="entry"><dt>SAPA</dt><dd>Soutien à l’autonomie des personnes âgées</dd></div>
+    <div class="entry"><dt>SARM</dt><dd>Staphylococcus Aureus (staphylocoque doré) résistant à la méticilline</dd></div>
+    <div class="entry"><dt>SAT</dt><dd>Santé au travail</dd></div>
+    <div class="entry"><dt>SCC</dt><dd>Société canadienne du cancer</dd></div>
+    <div class="entry"><dt>SCS</dt><dd>Service de consommation supervisé</dd></div>
+    <div class="entry"><dt>SGEE</dt><dd>Services de garde éducatifs à l&#x27;enfance</dd></div>
+    <div class="entry"><dt>SGÉE</dt><dd>Service de garde éducatif à l&#x27;enfance</dd></div>
+    <div class="entry"><dt>SI-GMI</dt><dd>Système d’information en gestion des maladies infectieuses</dd></div>
+    <div class="entry"><dt>SI-PQDCS</dt><dd>Système d&#x27;information du PQDCS</dd></div>
+    <div class="entry"><dt>SI-SPIN</dt><dd>Système d&#x27;information pour la surveillance provinciale des infections nosocomiales</dd></div>
+    <div class="entry"><dt>SIDA</dt><dd>Syndrome d’immunodéficience Acquise</dd></div>
+    <div class="entry"><dt>SIDEP</dt><dd>Services intégrés de dépistage et de prévention des ITSS</dd></div>
+    <div class="entry"><dt>SIM</dt><dd>Service de sécurité incendie de Montréal</dd></div>
+    <div class="entry"><dt>SIPMI</dt><dd>Services intégrés en maladies infectieuses</dd></div>
+    <div class="entry"><dt>SIPPE</dt><dd>Services intégrés en périnatalité et pour la petite enfance</dd></div>
+    <div class="entry"><dt>SIS</dt><dd>Site d’Injection Supervisé</dd></div>
+    <div class="entry"><dt>SISAT</dt><dd>Système d’information en santé au travail</dd></div>
+    <div class="entry"><dt>SISES</dt><dd>Système intégré de surveillance des expositions et des séroconversions</dd></div>
+    <div class="entry"><dt>SISMACQ</dt><dd>Système intégré de surveillance des maladies chroniques du Québec</dd></div>
+    <div class="entry"><dt>SLITSS</dt><dd>Service de lutte aux infections transmissibles sexuellement et par le sang</dd></div>
+    <div class="entry"><dt>SLVQ</dt><dd>Société des loteries vidéo du Québec</dd></div>
+    <div class="entry"><dt>SMA</dt><dd>Sous-ministre adjointe ou sous-ministre adjoint</dd></div>
+    <div class="entry"><dt>SNP</dt><dd>Soutien aux nouveaux parents</dd></div>
+    <div class="entry"><dt>SOC</dt><dd>Soutien aux organismes communautaires</dd></div>
+    <div class="entry"><dt>SPA</dt><dd>Substances psychoactives</dd></div>
+    <div class="entry"><dt>SPC</dt><dd>Système de prévention clinique</dd></div>
+    <div class="entry"><dt>SPIN</dt><dd>Surveillance provinciale des infections nosocomiales</dd></div>
+    <div class="entry"><dt>SPMC</dt><dd>Services préventifs en milieu clinique</dd></div>
+    <div class="entry"><dt>SPSS</dt><dd>Statistical Package for the Social Sciences (logiciel de gestion et d’analyse de données statistiques)</dd></div>
+    <div class="entry"><dt>SPVM</dt><dd>Service de police de la Ville de Montréal</dd></div>
+    <div class="entry"><dt>SQDC</dt><dd>Société québécoise du cannabis</dd></div>
+    <div class="entry"><dt>STM</dt><dd>Société de transport de Montréal</dd></div>
+    <div class="entry"><dt>STOMP</dt><dd>Stop smoking Over Mobile Phone (programme d’abandon du tabac à l’aide du téléphone mobile)</dd></div>
+    <div class="entry"><dt>SVD</dt><dd>Services de vérification des drogues</dd></div>
+    <div class="entry"><dt>SÉSAM</dt><dd>Surveillance de l’état de santé à Montréal</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-T">
+  <h3 class="letter">T</h3>
+  <dl>
+    <div class="entry"><dt>TB</dt><dd>Tuberculose</dd></div>
+    <div class="entry"><dt>TC-ME</dt><dd>Traumatismes crâniens et maltraitance des enfants</dd></div>
+    <div class="entry"><dt>TCN / TCR</dt><dd>Technocentre national / Technocentre régional</dd></div>
+    <div class="entry"><dt>TCNMI</dt><dd>Table de concertation nationale en maladies infectieuses</dd></div>
+    <div class="entry"><dt>TCNPP</dt><dd>Table de concertation nationale en promotion et en prévention</dd></div>
+    <div class="entry"><dt>TCNS</dt><dd>Table de concertation nationale en surveillance</dd></div>
+    <div class="entry"><dt>TCNSAT</dt><dd>Table de concertation nationale en santé au travail</dd></div>
+    <div class="entry"><dt>TCNSE</dt><dd>Table de concertation nationale en santé environnementale</dd></div>
+    <div class="entry"><dt>TCNSP</dt><dd>Table de coordination nationale en santé publique</dd></div>
+    <div class="entry"><dt>TCT</dt><dd>Test cutané à la tuberculine</dd></div>
+    <div class="entry"><dt>TED</dt><dd>Trouble envahissant du développement</dd></div>
+    <div class="entry"><dt>TMS</dt><dd>Troubles musculo‐squelettiques</dd></div>
+    <div class="entry"><dt>TOD</dt><dd>Thérapie sous observation directe</dd></div>
+    <div class="entry"><dt>TOMS</dt><dd>Table des organismes communautaires montréalais de lutte contre le SIDA</dd></div>
+    <div class="entry"><dt>TPJ</dt><dd>Tout‐petits – Jeunes (anciennement Tout‐petits – Familles et communauté ou TPFC)</dd></div>
+    <div class="entry"><dt>TQHP</dt><dd>Table québécoise sur l’herbe à poux</dd></div>
+    <div class="entry"><dt>TRN</dt><dd>Thérapies de remplacement à la nicotine</dd></div>
+    <div class="entry"><dt>TRPIN</dt><dd>Table régionale en prévention des infections nosocomiales</dd></div>
+    <div class="entry"><dt>TRSP</dt><dd>Table régionale de santé publique</dd></div>
+    <div class="entry"><dt>TUO</dt><dd>Trouble de l&#x27;utilisation des opioïdes</dd></div>
+    <div class="entry"><dt>TUS</dt><dd>Troubles liés à l&#x27;usage de substances</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-U">
+  <h3 class="letter">U</h3>
+  <dl>
+    <div class="entry"><dt>USSAT</dt><dd>Secteur urgences sanitaires en santé au travail</dd></div>
+  </dl>
+</section>
+<section class="letter-block" id="lt-V">
+  <h3 class="letter">V</h3>
+  <dl>
+    <div class="entry"><dt>VFA</dt><dd>(Voyageurs) Visite à la famille et aux amis</dd></div>
+    <div class="entry"><dt>VHA</dt><dd>Virus de l&#x27;hépatite A</dd></div>
+    <div class="entry"><dt>VHB</dt><dd>Virus de l&#x27;hépatite B</dd></div>
+    <div class="entry"><dt>VHC</dt><dd>Virus de l&#x27;hépatite C</dd></div>
+    <div class="entry"><dt>VIH</dt><dd>Virus de l&#x27;immunodéficience humaine</dd></div>
+    <div class="entry"><dt>VPH</dt><dd>Virus du papillome humain</dd></div>
+    <div class="entry"><dt>VSOP</dt><dd>Vigie sanitaire et optimisation des processus</dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  Direction régionale de santé publique · CIUSSS du Centre-Sud-de-l'Île-de-Montréal · Avril 2026
+</footer>
+
+<script>
+(function(){
+  const q = document.getElementById('q');
+  const countEl = document.getElementById('count');
+  const entries = Array.from(document.querySelectorAll('.entry'));
+  const blocks = Array.from(document.querySelectorAll('.letter-block'));
+  const total = entries.length;
+  function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+  q.addEventListener('input', () => {
+    const term = norm(q.value.trim());
+    let visible = 0;
+    entries.forEach(e => {
+      if (!term) { e.classList.remove('hidden'); visible++; return; }
+      const text = norm(e.textContent);
+      if (text.includes(term)) { e.classList.remove('hidden'); visible++; }
+      else e.classList.add('hidden');
+    });
+    blocks.forEach(b => {
+      const anyVisible = b.querySelectorAll('.entry:not(.hidden)').length > 0;
+      b.style.display = anyVisible ? '' : 'none';
+    });
+    countEl.textContent = visible + (visible === 1 ? ' entrée' : ' entrées') + (term ? ' (filtré)' : '');
+  });
+})();
+</script>
+
+</body>
+</html>
