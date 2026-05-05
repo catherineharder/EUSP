@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1480">
+<title>Concertations et partenariats — EUSP</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --soft: #8a8a8a;
+    --hairline: #e5e5e5;
+    --rule: #ececec;
+    --accent: #3b6fa8;
+    --row-alt: #fafafa;
+    --row-hover: #f4f4f4;
+    /* palier accents */
+    --nat:  #5a8fb5;
+    --reg:  #b07b6b;
+    --loc:  #b59140;
+    --fond: #7a679f;
+    --rec:  #6b8f5a;   /* recherche */
+    --com:  #9b6b8a;   /* communautaire */
+    --gov:  #6b6b8a;   /* gouv. / municipal */
+    --rss:  #5a8fb5;   /* réseau santé — same as nat */
+    --cit:  #c89e64;   /* citoyens */
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    font-size: 12pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ----- top nav ----- */
+  nav.toc {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline);
+    padding: 14px 48px;
+    font-size: 10pt;
+    z-index: 10;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  nav.toc a { color: var(--muted); text-decoration: none; padding-bottom: 1px; }
+  nav.toc a:hover { color: var(--accent); }
+  nav.toc .brand { font-weight: 500; color: var(--ink); margin-right: auto; letter-spacing: -0.005em; }
+
+  main { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 96px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero .label {
+    font-size: 10pt;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 56pt;
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+    max-width: 1100px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead {
+    font-size: 14pt;
+    color: var(--muted);
+    max-width: 800px;
+    margin: 0 0 32px;
+    line-height: 1.55;
+  }
+  .legend {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 10pt;
+    color: var(--muted);
+  }
+  .legend span b { color: var(--ink); font-weight: 500; }
+
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: 1px;
+    flex-shrink: 0;
+  }
+  .dot.nat  { background: var(--nat); }
+  .dot.reg  { background: var(--reg); }
+  .dot.loc  { background: var(--loc); }
+  .dot.fond { background: var(--fond); }
+  .dot.rec  { background: var(--rec); }
+  .dot.com  { background: var(--com); }
+  .dot.gov  { background: var(--gov); }
+  .dot.rss  { background: var(--rss); }
+  .dot.cit  { background: var(--cit); }
+
+  /* ===== SECTION ===== */
+  section.section {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  section.section:last-of-type { border-bottom: none; }
+  section.section .eyebrow {
+    font-size: 10pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  section.section h2 {
+    font-size: 24pt;
+    font-weight: 500;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  section.section .lead {
+    font-size: 11.5pt;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 860px;
+    margin: 0 0 32px;
+  }
+  section.section .lead strong { color: var(--ink); font-weight: 500; }
+  section.section .lead em { font-style: italic; color: var(--ink); }
+
+  .note {
+    font-size: 10pt;
+    color: var(--muted);
+    margin: 24px 0 0;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+    line-height: 1.55;
+    max-width: 940px;
+  }
+  .note strong { color: var(--ink); font-weight: 500; }
+  .note em { font-style: italic; color: var(--ink); }
+
+  /* ============================
+     UNIFIED TABLE STYLE
+     used by every section
+     ============================ */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+  table.data {
+    width: 100%;
+    min-width: 960px;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  table.data thead th {
+    text-align: left;
+    font-size: 9.5pt;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--soft);
+    padding: 0 18px 14px 18px;
+    border-bottom: 1.5px solid var(--ink);
+    vertical-align: bottom;
+    white-space: nowrap;
+  }
+  table.data thead th:first-child { padding-left: 0; }
+  table.data thead th:last-child  { padding-right: 0; }
+  table.data tbody td {
+    padding: 22px 18px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  table.data tbody td:first-child { padding-left: 0; }
+  table.data tbody td:last-child  { padding-right: 0; }
+  table.data tbody tr:hover td { background: var(--row-alt); }
+  table.data tbody tr:last-child td { border-bottom: none; }
+
+  /* leading column — names/titles */
+  table.data .lead-cell {
+    font-weight: 500;
+    font-size: 11.5pt;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    white-space: normal;
+  }
+  table.data .lead-cell .acronym {
+    display: block;
+    font-size: 10pt;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 3px;
+    letter-spacing: 0.01em;
+  }
+  table.data .lead-cell .palier {
+    display: block;
+    font-size: 9pt;
+    color: var(--muted);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+  }
+
+  /* lists inside cells */
+  table.data ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  table.data li {
+    padding: 2px 0;
+    color: var(--ink);
+  }
+  table.data li::before {
+    content: "·";
+    color: var(--soft);
+    margin-right: 7px;
+  }
+  table.data li b { font-weight: 500; }
+  table.data li .role,
+  table.data li small {
+    color: var(--muted);
+    font-size: 10pt;
+  }
+  table.data li .role { display: inline; }
+
+  /* prose inside cells */
+  table.data .prose {
+    margin: 0;
+    color: var(--ink);
+  }
+  table.data .prose em { font-style: italic; }
+  table.data .prose b { font-weight: 500; }
+  table.data .muted { color: var(--muted); font-size: 10pt; }
+
+  /* family chip cell — for partners table */
+  table.data .family {
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* column hint — to keep first column tight */
+  table.data .col-name { width: 18%; }
+  table.data .col-fam  { width: 13%; }
+  table.data .col-mid  { width: 19%; }
+  table.data .col-wide { width: 25%; }
+
+  /* ----- footer ----- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 32px 48px 64px;
+    color: var(--muted);
+    font-size: 10pt;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <span class="brand">Ressources EUSP</span>
+  <a href="index.html">Structure organisationnelle</a>
+  <a href="concertations.html">Concertations et partenariats</a>
+  <a href="acronymes.html">Glossaire</a>
+</nav>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="label">Direction régionale de santé publique · Secteur EUSP</div>
+    <h1>Cartographier les <em>concertations</em> et les <em>partenaires</em> de l'EUSP.</h1>
+    <p class="lead">Cinq tables, un seul format de lecture. Termes, typologie des instances, concertations clés, partenaires, postures de la DRSP — pour chaque ligne, on cherche au même endroit qui fait quoi, avec qui, et pour produire quoi.</p>
+    <div class="legend">
+      <span><span class="dot nat"></span><b>National</b></span>
+      <span><span class="dot reg"></span><b>Régional</b></span>
+      <span><span class="dot loc"></span><b>Local</b></span>
+      <span><span class="dot fond"></span><b>Philanthropie</b></span>
+      <span><span class="dot rss"></span><b>Réseau santé</b></span>
+      <span><span class="dot gov"></span><b>Municipal / gouv.</b></span>
+      <span><span class="dot com"></span><b>Communautaire</b></span>
+      <span><span class="dot rec"></span><b>Recherche</b></span>
+      <span><span class="dot cit"></span><b>Citoyen·ne·s</b></span>
+    </div>
+  </section>
+
+  <!-- ===== TABLE 1 — TERMES ===== -->
+  <section class="section" id="termes">
+    <p class="eyebrow">Table 1 · Repères de vocabulaire</p>
+    <h2>Termes clés</h2>
+    <p class="lead">Le vocabulaire de la concertation est précis : un <em>comité</em> ne fait pas le même travail qu'une <em>instance stratégique</em>, et une <em>partie prenante</em> n'est pas toujours un partenaire formel.</p>
+
+    <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="col-name">Terme</th>
+          <th class="col-wide">Définition</th>
+          <th>À ne pas confondre avec</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="lead-cell">Concertation</td>
+          <td><p class="prose">Processus par lequel plusieurs acteurs <em>se coordonnent volontairement</em> pour partager une lecture commune, dégager des priorités et mettre en commun des leviers d'action.</p></td>
+          <td><p class="prose"><em>Consultation</em> (recueillir des avis), <em>partenariat</em> (entente formelle entre deux ou trois organisations).</p></td>
+          <td><p class="prose">La <b>CMTQ</b> regroupe les 30 tables de quartier de Montréal.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Instance</td>
+          <td><p class="prose">Lieu formel doté d'un <em>mandat</em>, d'une <em>composition arrêtée</em> et de <em>règles de fonctionnement</em>. Peut être <em>stratégique</em> (orientations) ou <em>tactique</em> (mise en œuvre).</p></td>
+          <td><p class="prose"><em>Comité de travail</em> — moins permanent et avec moins d'autorité d'engagement sur les organisations.</p></td>
+          <td><p class="prose">Le <b>comité de pilotage de l'IMSDSL</b>.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Parties prenantes</td>
+          <td><p class="prose">Tous les acteurs <em>concernés ou affectés</em> par un dossier — qu'ils y soient officiellement associés ou non. Englobe les partenaires et plus largement : populations, bailleurs, ordres, etc.</p></td>
+          <td><p class="prose"><em>Partenaires</em> — sous-ensemble avec qui on collabore activement.</p></td>
+          <td><p class="prose">Sur un dossier logement : locataires, propriétaires, ville, OBNL, fondations, OSL, recherche.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Comité</td>
+          <td><p class="prose">Groupe restreint mandaté par une instance, autour d'un <em>objet précis</em>. Permanent, ad hoc ou aviseur.</p></td>
+          <td><p class="prose"><em>Groupe de travail</em> — plus court, plus souple, moins formalisé.</p></td>
+          <td><p class="prose">Comité de coordination de l'IMSDSL.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Groupe de travail</td>
+          <td><p class="prose">Configuration <em>souple et temporaire</em> qui livre un produit délimité (avis, état des lieux, recommandation), puis se dissout.</p></td>
+          <td><p class="prose"><em>Comité</em> — plus permanent.</p></td>
+          <td><p class="prose">Groupes de travail PARI-SP par livrable.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Table de concertation</td>
+          <td><p class="prose">Lieu de concertation à <em>composition large</em>, intersectoriel ou multipartite. <em>Thématique</em> ou <em>territoriale</em>.</p></td>
+          <td><p class="prose"><em>Comité aviseur</em> — composition restreinte, mandat plus étroit.</p></td>
+          <td><p class="prose">Table régionale en développement social ; table de quartier.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Communauté de pratique <span class="acronym">CoP</span></td>
+          <td><p class="prose">Espace d'<em>apprentissage entre pairs</em> qui exercent un même rôle. Échange de pratiques, d'outils, de questions ouvertes.</p></td>
+          <td><p class="prose"><em>Comité</em> ou <em>instance</em> — la CoP n'est <em>pas un lieu de décision</em>.</p></td>
+          <td><p class="prose">CoP en développement des communautés ; CoP en équité en santé.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Fondation</td>
+          <td><p class="prose">Organisme philanthropique privé ou public qui finance — et parfois copilote — des initiatives d'intérêt collectif.</p></td>
+          <td><p class="prose"><em>Bailleur public</em> (ex. PSOC) — relève d'une logique de programme étatique.</p></td>
+          <td><p class="prose">Centraide, FLAC, FML Saputo, FGM.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Initiative montréalaise <span class="acronym">IMSDSL</span></td>
+          <td><p class="prose">Entente régionale phare qui structure la concertation entre la DRSP, Centraide, la CMTQ et la Ville de Montréal pour soutenir les <em>30 tables de quartier</em>.</p></td>
+          <td><p class="prose">Une simple <em>entente bilatérale</em> de financement : l'IMSDSL est <em>quadripartite</em> avec gouvernance partagée.</p></td>
+          <td><p class="prose">Plan d'action 2018–2023 ; renouvellement en cours.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Intersectorialité</td>
+          <td><p class="prose">Manière de travailler qui mobilise <em>plusieurs secteurs</em> sur un même enjeu, en reconnaissant que les déterminants sociaux dépassent le mandat du seul réseau de la santé.</p></td>
+          <td><p class="prose"><em>Multidisciplinarité</em> — plusieurs disciplines au sein d'un même secteur.</p></td>
+          <td><p class="prose">Dossiers logement, sécurité alimentaire, prévention de l'itinérance.</p></td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ===== TABLE 2 — TYPOLOGIE ===== -->
+  <section class="section" id="typologie">
+    <p class="eyebrow">Table 2 · Vue d'ensemble</p>
+    <h2>Typologie des instances</h2>
+    <p class="lead">Neuf types d'instances structurent le travail intersectoriel autour de la santé publique à Montréal. Pour chacun : qui le met en place, qui y siège, ce qui s'y joue, et un ou deux exemples concrets pertinents pour l'EUSP.</p>
+
+    <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="col-name">Type d'instance</th>
+          <th class="col-mid">Mise en place par</th>
+          <th class="col-mid">Composition</th>
+          <th class="col-mid">Mandat</th>
+          <th>Exemples EUSP</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="lead-cell">Instances stratégiques<span class="palier"><span class="dot nat"></span>National · Régional</span></td>
+          <td>
+            <ul>
+              <li><b>MSSS</b> ou <b>Santé Québec</b></li>
+              <li>Direction de la DRSP, dans certains cas</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>PDG / DG des CIUSSS</li>
+              <li>Direction de la DRSP</li>
+              <li>Partenaires de haut niveau <span class="role">(ministères, fondations majeures)</span></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Définir les <b>orientations</b> et les <b>priorités</b></li>
+              <li>Allouer les <b>ressources</b></li>
+              <li>Tenir l'<b>imputabilité</b> à haut niveau</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>TCNSP</b></li>
+              <li><b>Comité de pilotage de l'IMSDSL</b></li>
+              <li>Tables des PDG / PDGA des CIUSSS</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Instances de gouvernance régionale<span class="palier"><span class="dot reg"></span>Régional</span></td>
+          <td>
+            <ul><li><b>DRSP de Montréal</b></li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>DRSP</li>
+              <li>Direction des cinq CIUSSS</li>
+              <li>Représentation MSSS, au besoin</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Coordonner la mise en œuvre du <b>PNSP</b> et du <b>PARI-SP</b> à Montréal</li>
+              <li>Aligner les acteurs sur le territoire</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>Table régionale de santé publique (TRSP)</b></li>
+              <li>Comités du <em>cadre de gouvernance régionale</em> (2022)</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Tables de concertation intersectorielle<span class="palier"><span class="dot reg"></span>Régional</span></td>
+          <td>
+            <ul>
+              <li>DRSP</li>
+              <li>Municipalités</li>
+              <li>Secteur communautaire <span class="role">(ex. RIOCM)</span></li>
+            </ul>
+          </td>
+          <td>
+            <ul><li>Mixte : organismes communautaires, CIUSSS, ville, écoles, ONG</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Aligner les <b>secteurs</b> sur un même enjeu</li>
+              <li>Partager l'information</li>
+              <li>Codévelopper des réponses aux enjeux sociaux</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Table régionale en <b>développement social</b></li>
+              <li>Tables <b>itinérance</b></li>
+              <li>Tables <b>jeunesse</b> intersectorielles</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Concertations sectorielles<span class="palier"><span class="dot reg"></span>Régional · National</span></td>
+          <td>
+            <ul>
+              <li>Équipes DRSP</li>
+              <li>Réseaux thématiques spécifiques</li>
+            </ul>
+          </td>
+          <td>
+            <ul><li>Professionnel·le·s d'un même champ <span class="role">(ex. agent·e·s pauvreté)</span></li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Partager les <b>pratiques</b></li>
+              <li>Coordonner les actions à l'intérieur d'un secteur</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Rencontre des <b>répondant·e·s pauvreté et DC</b></li>
+              <li>Groupes de travail de la <b>TCNPP</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Comités de travail / opérationnels<span class="palier"><span class="dot reg"></span>Régional · Local</span></td>
+          <td>
+            <ul>
+              <li>Équipes DRSP</li>
+              <li>Programmes des CIUSSS</li>
+              <li>Projets ponctuels</li>
+            </ul>
+          </td>
+          <td>
+            <ul><li>Praticien·ne·s, agent·e·s de programme, analystes</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Exécuter des <b>tâches concrètes</b></li>
+              <li>Développer outils, guides, mécanismes de référence</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Groupes de travail pour les <b>livrables PARI-SP</b></li>
+              <li><b>Comité de coordination de l'IMSDSL</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Communautés de pratique<span class="palier"><span class="dot reg"></span>Régional</span></td>
+          <td>
+            <ul>
+              <li>DRSP</li>
+              <li>Organismes partenaires</li>
+            </ul>
+          </td>
+          <td>
+            <ul><li>Praticien·ne·s avec rôles similaires <span class="role">(ne représentent pas leur organisation)</span></li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Partage de <b>connaissances</b> entre pairs</li>
+              <li>Pas un lieu de décision</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>CoP en <b>développement des communautés</b></li>
+              <li>CoP en <b>équité en santé</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Tables locales de concertation<span class="palier"><span class="dot loc"></span>Local</span></td>
+          <td>
+            <ul>
+              <li>Arrondissements</li>
+              <li>Réseaux locaux des CIUSSS</li>
+              <li>Municipalités</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Organismes locaux</li>
+              <li>Intervenant·e·s de première ligne</li>
+              <li>Citoyen·ne·s, parfois</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Adresser des <b>besoins locaux</b></li>
+              <li>Adapter les priorités régionales au quartier</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>30 tables de quartier</b> à Montréal</li>
+              <li>Regroupées dans la <b>CMTQ</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Instances consultatives communautaires<span class="palier"><span class="dot reg"></span>Régional</span></td>
+          <td>
+            <ul><li>Secteur communautaire <span class="role">(ex. RIOCM, ACCÉSSS, CTROC)</span></li></ul>
+          </td>
+          <td>
+            <ul><li>Organismes communautaires, principalement</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>Plaidoyer</b></li>
+              <li>Production d'<b>avis</b> et de positions</li>
+              <li>Influence des politiques publiques</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Consultations <b>RIOCM</b> sur les cadres DRSP</li>
+              <li>Avis communautaires sur le <b>PARI-SP</b></li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Instances de coordination de programmes<span class="palier"><span class="dot reg"></span>Régional</span></td>
+          <td>
+            <ul>
+              <li>DRSP</li>
+              <li>Programmes des CIUSSS</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Gestionnaires de programme</li>
+              <li>Partenaires opérationnels</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Assurer la <b>livraison</b> d'interventions précises</li>
+              <li>Suivre indicateurs et ressources</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Tables de coordination en <b>vaccination</b></li>
+              <li>Coordination opérationnelle de l'<b>IMSDSL</b></li>
+              <li><b>RAPSIM</b> — itinérance</li>
+            </ul>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+    <p class="note"><strong>Comment lire la typologie.</strong> Les types ne sont pas étanches : une même instance peut basculer d'un mode à l'autre selon les dossiers à l'ordre du jour. Ce qu'il faut retenir, c'est la <em>différence de finalité</em> — on n'attend pas les mêmes décisions d'un comité de travail que d'une instance stratégique, et on n'invite pas les mêmes personnes à une CoP qu'à une table consultative communautaire.</p>
+  </section>
+
+  <!-- ===== TABLE 3 — CONCERTATIONS CLÉS ===== -->
+  <section class="section" id="concertations-cles">
+    <p class="eyebrow">Table 3 · Zoom</p>
+    <h2>Concertations clés à Montréal</h2>
+    <p class="lead">Les instances que les équipes EUSP fréquentent au quotidien — celles qu'il est utile de connaître en détail. Même format que la typologie : <em>qui</em>, <em>composition</em>, <em>mandat</em>, et un repère pratique.</p>
+
+    <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="col-name">Concertation</th>
+          <th class="col-mid">Mise en place par</th>
+          <th class="col-mid">Composition</th>
+          <th class="col-mid">Mandat</th>
+          <th>Repère</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="lead-cell">Initiative montréalaise de soutien au développement social local<span class="acronym">IMSDSL</span><span class="palier"><span class="dot reg"></span>Stratégique régionale</span></td>
+          <td>
+            <ul><li>Les <b>quatre partenaires fondateurs</b>, conjointement</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>DRSP</b> — CCSMTL</li>
+              <li><b>Centraide</b> du Grand Montréal (CGM)</li>
+              <li><b>CMTQ</b></li>
+              <li><b>Ville de Montréal</b> — SDIS</li>
+              <li><b>MAMH</b>, <b>fondations</b> selon les chantiers</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Soutien financier et stratégique aux <b>30 tables de quartier</b></li>
+              <li>Lecture régionale du DSL</li>
+              <li>Cohérence fondations / ville / réseau / communautaire</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Cadre de référence — juin 2018</li>
+              <li>Publication DRSP — sept. 2024</li>
+              <li>Dernière instance : DRSP, DSGPU, Centraide, MAMH, Ville, L'ÎLOT Coop, FML Saputo, FGM, FLAC, RIOCM, CMTQ</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Table régionale de santé publique<span class="acronym">TRSP</span><span class="palier"><span class="dot reg"></span>Gouvernance régionale</span></td>
+          <td>
+            <ul><li>DRSP de Montréal</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Directeur·rice régional·e de SP</li>
+              <li>Directions concernées des cinq CIUSSS</li>
+              <li>Représentation des établissements non fusionnés</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Décliner le <b>PNSP</b> et le <b>PARI-SP</b> à Montréal</li>
+              <li>Arbitrer les priorités régionales</li>
+              <li>Suivre la mise en œuvre des plans d'action</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Cadre de gouvernance régionale, 2022</li>
+              <li>S'appuie sur les comités 1<sup>re</sup> ligne, jeunesse, SAPA, etc.</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Tables de quartier<span class="acronym">TDQ — 30 tables</span><span class="palier"><span class="dot loc"></span>Locale de concertation</span></td>
+          <td>
+            <ul>
+              <li>Acteurs locaux du quartier</li>
+              <li>Soutien régional via l'<b>IMSDSL</b></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li><b>Citoyen·ne·s</b> du quartier</li>
+              <li><b>Organismes communautaires</b> locaux</li>
+              <li><b>CIUSSS</b> — CLSC, organisation communautaire</li>
+              <li><b>Arrondissement</b>, services municipaux</li>
+              <li>Centre de services scolaire, élu·e·s</li>
+              <li>Économie sociale, Centraide</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Lutter contre <b>pauvreté</b> et <b>inégalités sociales</b></li>
+              <li>Renforcer le <b>pouvoir d'agir</b> citoyen</li>
+              <li>Diagnostic, planification et suivi du quartier</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>30 tables, regroupées dans la <b>CMTQ</b></li>
+              <li><em>Pouvoir d'agir des communautés locales</em> — DRSP</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Coalition montréalaise des tables de quartier<span class="acronym">CMTQ</span><span class="palier"><span class="dot reg"></span>Concertation régionale</span></td>
+          <td>
+            <ul><li>Tables de quartier elles-mêmes</li></ul>
+          </td>
+          <td>
+            <ul>
+              <li>Une représentation par <b>table de quartier</b> (30)</li>
+              <li>Permanence régionale</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Voix collective des tables à l'échelle régionale</li>
+              <li>Co-pilotage de l'<b>IMSDSL</b></li>
+              <li>Plaidoyer en DSL</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Partenaire fondateur de l'IMSDSL</li>
+              <li>Interface entre paliers local et régional</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Table de coordination nationale en santé publique<span class="acronym">TCNSP</span><span class="palier"><span class="dot nat"></span>Stratégique nationale</span></td>
+          <td>
+            <ul>
+              <li><b>MSSS — SMPSP</b></li>
+              <li>Présidée par le <b>DNSP</b></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>DNSP <span class="role">— préside</span></li>
+              <li>Directrices et directeurs régionaux de SP <span class="role">(18 régions)</span></li>
+              <li>Personnes désignées par les régions</li>
+              <li>INSPQ <span class="role">— partenaire scientifique</span></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Définir les orientations nationales</li>
+              <li>Déterminer priorités et arbitrages</li>
+              <li>Coordonner la mise en œuvre du <b>PNSP</b></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Anime la <b>TCNPP</b> et ses 9 groupes thématiques</li>
+              <li>5 tables sectorielles : Surveillance, Prom-Prév, MI, Santé env., SAT</li>
+            </ul>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+    <p class="note"><strong>Carte mentale.</strong> L'<em>IMSDSL</em> est l'instance stratégique régionale du DSL ; la <em>CMTQ</em> en est la voix collective côté tables ; les <em>tables de quartier</em> en sont le bras local ; la <em>TRSP</em> est le pendant régional en santé publique ; la <em>TCNSP</em> chapeaute le tout au palier national.</p>
+  </section>
+
+  <!-- ===== TABLE 4 — PARTENAIRES ===== -->
+  <section class="section" id="partenaires">
+    <p class="eyebrow">Table 4 · Annuaire</p>
+    <h2>Partenaires de l'EUSP</h2>
+    <p class="lead">Six familles d'acteurs siègent — selon les dossiers — aux côtés de l'EUSP. Pour chaque partenaire : son acronyme, son nom complet, sa famille d'appartenance et son rôle dans l'écosystème.</p>
+
+    <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="col-fam">Famille</th>
+          <th class="col-name">Acronyme</th>
+          <th class="col-wide">Partenaire</th>
+          <th>Rôle dans l'écosystème EUSP</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="family"><span class="dot rss"></span>Réseau santé</td>
+          <td class="lead-cell">CCSMTL — DRSP</td>
+          <td><p class="prose">Direction régionale de santé publique de Montréal</p></td>
+          <td><p class="prose">Convoque les concertations en santé publique, finance et coordonne les actions sur les déterminants sociaux et environnementaux.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rss"></span>Réseau santé</td>
+          <td class="lead-cell">CCSMTL — DSGPU</td>
+          <td><p class="prose">Direction du soutien aux groupes prioritaires et urbains, CCSMTL</p></td>
+          <td><p class="prose">Partenaire fréquent sur les dossiers itinérance, hébergement et populations vulnérables.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rss"></span>Réseau santé</td>
+          <td class="lead-cell">CCOMTL · CEMTL · CNIM · COMTL</td>
+          <td><p class="prose">Quatre autres CIUSSS de Montréal (Centre-Ouest, Est, Nord, Ouest)</p></td>
+          <td><p class="prose">Mettent en œuvre les actions de santé publique sur leur territoire ; siègent aux tables régionales et locales.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rss"></span>Réseau santé</td>
+          <td class="lead-cell">INSPQ</td>
+          <td><p class="prose">Institut national de santé publique du Québec</p></td>
+          <td><p class="prose">Partenaire scientifique des tables nationales et régionales — données, avis, soutien méthodologique.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rss"></span>Réseau santé</td>
+          <td class="lead-cell">MSSS — SMPSP</td>
+          <td><p class="prose">Sous-ministériat à la prévention et santé publique</p></td>
+          <td><p class="prose">Pilote la TCNSP, encadre les orientations nationales et le PNSP.</p></td>
+        </tr>
+
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">Ville de Montréal</td>
+          <td><p class="prose">Plusieurs services centraux (SDIS, urbanisme, environnement, sports et loisirs)</p></td>
+          <td><p class="prose">Co-fondatrice de l'IMSDSL ; partenaire des dossiers aménagement, mobilité, alimentation, itinérance.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">SDIS</td>
+          <td><p class="prose">Service de la diversité et de l'inclusion sociale, Ville de Montréal</p></td>
+          <td><p class="prose">Représente la Ville à l'IMSDSL et dans plusieurs tables régionales.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">19 arrondissements</td>
+          <td><p class="prose">Arrondissements de Montréal et villes liées</p></td>
+          <td><p class="prose">Partenaires locaux des tables de quartier et des dossiers d'aménagement.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">OCPM</td>
+          <td><p class="prose">Office de consultation publique de Montréal</p></td>
+          <td><p class="prose">Lieu de mémoires et avis de la DRSP en aménagement, équité, environnement.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">CMM</td>
+          <td><p class="prose">Communauté métropolitaine de Montréal</p></td>
+          <td><p class="prose">Partenaire des dossiers métropolitains : transport, environnement, plan d'aménagement.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">MAMH</td>
+          <td><p class="prose">Ministère des Affaires municipales et de l'Habitation</p></td>
+          <td><p class="prose">Partenaire de l'IMSDSL ; finance des programmes en habitation et développement local.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot gov"></span>Municipal · Gouv.</td>
+          <td class="lead-cell">MAPAQ · MTESS · MTQ · MFA</td>
+          <td><p class="prose">Ministères : Agriculture-Pêcheries-Alimentation · Travail-Emploi-Solidarité · Transports · Famille</p></td>
+          <td><p class="prose">Partenaires sectoriels selon les dossiers (alimentation, emploi, mobilité, petite enfance).</p></td>
+        </tr>
+
+        <tr>
+          <td class="family"><span class="dot com"></span>Communautaire</td>
+          <td class="lead-cell">CMTQ</td>
+          <td><p class="prose">Coalition montréalaise des tables de quartier</p></td>
+          <td><p class="prose">Voix collective des 30 tables de quartier ; co-pilote l'IMSDSL.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot com"></span>Communautaire</td>
+          <td class="lead-cell">RIOCM</td>
+          <td><p class="prose">Regroupement intersectoriel des organismes communautaires de Montréal</p></td>
+          <td><p class="prose">Plaidoyer du milieu communautaire ; consultations sur les cadres DRSP.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot com"></span>Communautaire</td>
+          <td class="lead-cell">L'ÎLOT Coop</td>
+          <td><p class="prose">Coopérative de solidarité en transformation sociale</p></td>
+          <td><p class="prose">Partenaire émergent de l'IMSDSL ; appui aux pratiques participatives et au DSL.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot com"></span>Communautaire</td>
+          <td class="lead-cell">RAPSIM</td>
+          <td><p class="prose">Réseau d'aide aux personnes seules et itinérantes de Montréal</p></td>
+          <td><p class="prose">Coordination du milieu communautaire en itinérance ; partenaire des tables itinérance.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot com"></span>Communautaire</td>
+          <td class="lead-cell">ACCÉSSS · RQASF · CTROC</td>
+          <td><p class="prose">Communautés culturelles · Santé des femmes · Tables régionales d'organismes communautaires</p></td>
+          <td><p class="prose">Voix communautaires sectorielles consultées sur les cadres et plans DRSP.</p></td>
+        </tr>
+
+        <tr>
+          <td class="family"><span class="dot fond"></span>Philanthropie</td>
+          <td class="lead-cell">Centraide du Grand Montréal</td>
+          <td><p class="prose">Fondation communautaire — financement de plus de 350 organismes</p></td>
+          <td><p class="prose">Co-fondatrice de l'IMSDSL ; bailleur principal des tables de quartier.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot fond"></span>Philanthropie</td>
+          <td class="lead-cell">FLAC</td>
+          <td><p class="prose">Fondation Lucie et André Chagnon</p></td>
+          <td><p class="prose">Soutien à la prévention de la pauvreté et au développement du plein potentiel des enfants ; lien avec la chaire CELAC.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot fond"></span>Philanthropie</td>
+          <td class="lead-cell">FML Saputo</td>
+          <td><p class="prose">Fondation Mirella et Lino Saputo</p></td>
+          <td><p class="prose">Engagement aîné·e·s, nouveaux arrivants, sécurité alimentaire dans le Grand Montréal.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot fond"></span>Philanthropie</td>
+          <td class="lead-cell">FGM</td>
+          <td><p class="prose">Fondation du Grand Montréal</p></td>
+          <td><p class="prose">Fondation communautaire ; publie <em>Signes vitaux du Grand Montréal</em> — repère pour les concertations.</p></td>
+        </tr>
+
+        <tr>
+          <td class="family"><span class="dot rec"></span>Recherche</td>
+          <td class="lead-cell">CReSP · CRCHUM · IR du CUSM</td>
+          <td><p class="prose">Centres de recherche en santé publique et hospitaliers universitaires</p></td>
+          <td><p class="prose">Partenaires de recherche évaluative et de production de connaissances.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rec"></span>Recherche</td>
+          <td class="lead-cell">CACIS · CREMIS · OMISS · CEETUM</td>
+          <td><p class="prose">Chaires et observatoires : approches communautaires · inégalités · ISS · études ethniques</p></td>
+          <td><p class="prose">Production de savoirs sur les déterminants sociaux et l'équité en santé.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot rec"></span>Recherche</td>
+          <td class="lead-cell">CELAC</td>
+          <td><p class="prose">Chaire d'enseignement Lucie et André Chagnon</p></td>
+          <td><p class="prose">Renforcement des compétences en promotion-prévention et DSL.</p></td>
+        </tr>
+
+        <tr>
+          <td class="family"><span class="dot cit"></span>Citoyen·ne·s</td>
+          <td class="lead-cell">Membres et bénévoles des TDQ</td>
+          <td><p class="prose">Citoyen·ne·s engagé·e·s dans leur quartier</p></td>
+          <td><p class="prose">Voix directe des milieux de vie ; participation aux diagnostics et aux plans de quartier.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot cit"></span>Citoyen·ne·s</td>
+          <td class="lead-cell">Comités citoyens · CCA</td>
+          <td><p class="prose">Comités citoyens et conseils consultatifs d'arrondissement</p></td>
+          <td><p class="prose">Mécanismes municipaux de consultation ; relais des préoccupations locales.</p></td>
+        </tr>
+        <tr>
+          <td class="family"><span class="dot cit"></span>Citoyen·ne·s</td>
+          <td class="lead-cell">Personnes concernées</td>
+          <td><p class="prose">Logement, itinérance, sécurité alimentaire, vieillissement, etc.</p></td>
+          <td><p class="prose">Pairs aidants et porte-parole des réalités vécues ; à intégrer en amont des décisions.</p></td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+    <p class="note"><strong>Repère pratique.</strong> Avant d'inviter un acteur à une table, valider trois questions : <em>quel est son mandat sur le dossier ?</em>, <em>quel niveau de décision attend-on de lui (information, consultation, codécision) ?</em>, et <em>est-il déjà mobilisé ailleurs sur ce même enjeu ?</em>. Cela évite les <strong>doublons</strong> et clarifie la <strong>valeur ajoutée</strong> de chaque participation.</p>
+  </section>
+
+  <!-- ===== TABLE 5 — POSTURES ===== -->
+  <section class="section" id="posture">
+    <p class="eyebrow">Table 5 · Positionnement</p>
+    <h2>Postures de la DRSP</h2>
+    <p class="lead">Dans les concertations, la DRSP n'est ni un simple bailleur ni un simple participant : elle joue plusieurs rôles selon les dossiers. Le <em>Guide de participation à des comités, à des groupes ou à des instances de travail</em> publié par la DRSP balise ces engagements.</p>
+
+    <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th class="col-name">Posture</th>
+          <th class="col-wide">Description</th>
+          <th class="col-mid">Exemple concret</th>
+          <th>Mécanisme / outil</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="lead-cell">Convocatrice</td>
+          <td><p class="prose">Réunit les parties prenantes autour d'un enjeu de santé publique et porte la table.</p></td>
+          <td><p class="prose">Tables thématiques régionales en logement, sécurité alimentaire, prévention de l'itinérance.</p></td>
+          <td><p class="prose">Mandat de la <b>TRSP</b> ; cadres thématiques DRSP.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Productrice de connaissances</td>
+          <td><p class="prose">Surveille, analyse, diffuse données et avis pour alimenter la concertation.</p></td>
+          <td><p class="prose">Surveillance de l'état de santé à Montréal (SÉSAM), portraits régionaux par dossier.</p></td>
+          <td><p class="prose">ÉIES ; portraits ; mémoires.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Influenceuse de politiques</td>
+          <td><p class="prose">Porte des recommandations auprès du municipal et du gouvernemental.</p></td>
+          <td><p class="prose">Avis publics sur l'aménagement, mémoires à l'OCPM, recommandations au MAMH.</p></td>
+          <td><p class="prose">Mémoires ; consultations publiques ; positions DRSP.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Soutien financier et technique</td>
+          <td><p class="prose">Finance, accompagne et outille les acteurs locaux et régionaux.</p></td>
+          <td><p class="prose">PSOC, IMSDSL, fonds spécifiques (sécurité alimentaire, vieillissement, climat).</p></td>
+          <td><p class="prose">Ententes spécifiques ; appels de projets ; accompagnement RISS-DC.</p></td>
+        </tr>
+
+        <tr>
+          <td class="lead-cell">Partenaire</td>
+          <td><p class="prose">Siège dans des concertations qu'elle ne convoque pas, en y apportant une lecture santé publique.</p></td>
+          <td><p class="prose">Tables de quartier, instances pilotées par la Ville ou par les fondations.</p></td>
+          <td><p class="prose"><b>Guide de participation DRSP</b> — clarifie mandat, durée, conditions de retrait.</p></td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+    <p class="note"><strong>Avant de s'engager.</strong> Clarifier le mandat, le niveau de représentation, la durée d'engagement, les modalités d'évaluation et les conditions de retrait — c'est ce que recommande le <em>Guide de participation</em> de la DRSP pour toute nouvelle instance.</p>
+  </section>
+
+</main>
+
+<footer>
+  Direction régionale de santé publique · CIUSSS du Centre-Sud-de-l'Île-de-Montréal · Mai 2026
+</footer>
+
+</body>
+</html>
