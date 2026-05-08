@@ -1,0 +1,41 @@
+name: Synchronisation des acronymes
+
+# Synchronise acronymes.html avec la feuille Google publiée en CSV.
+# S'exécute :
+#   - chaque jour à 03h00 UTC (≈ 23h00 heure du Québec en EDT, 22h00 en EST)
+#   - manuellement via l'onglet "Actions" de GitHub
+#
+# Pré-requis : ajouter le secret CSV_URL dans
+# Settings → Secrets and variables → Actions
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Régénérer acronymes.html
+        env:
+          CSV_URL: ${{ secrets.CSV_URL }}
+        run: python3 scripts/sync_acronymes.py
+
+      - name: Pousser les changements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet acronymes.html; then
+            echo "Aucun changement à pousser."
+          else
+            git add acronymes.html
+            git commit -m "Mise à jour automatique des acronymes ($(date -u +%Y-%m-%d))"
+            git push
+          fi
